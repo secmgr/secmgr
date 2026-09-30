@@ -1,0 +1,29 @@
+{
+  "name": "@secmgr/db",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "The secmgr database: Drizzle schema, SQL migrations and the migration runner.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --env-file-if-exists=../../.env.local --test \"dist/**/*.test.js\"",
+    "migrate": "tsc -p tsconfig.json && node dist/cli.js migrate",
+    "status": "tsc -p tsconfig.json && node dist/cli.js status",
+    "new": "tsc -p tsconfig.json && node dist/cli.js new"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.3",
+    "postgres": "3.4.9"
+  },
+  "devDependencies": {
+    "@secmgr/config": "*",
+    "@types/node": "26.6.3",
+    "typescript": "6.0.3"
+  }
+}

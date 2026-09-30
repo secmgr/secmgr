@@ -1,0 +1,13 @@
+{
+  "extends": "@secmgr/config/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": false,
+    "sourceMap": false,
+    "declaration": false
+  },
+  "include": ["src"]
+}

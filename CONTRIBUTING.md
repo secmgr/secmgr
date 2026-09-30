@@ -39,6 +39,8 @@ Migrations are plain SQL in `packages/db/migrations`, named with a 4 digit numbe
 ```
 
 - Create one with `npm run db:new describe_the_change`. It picks the next number.
+- See what has run with `npm run db:status`.
+- Each file runs in its own transaction, so leave out `begin` and `commit`. A file that fails leaves nothing behind.
 - Never edit a migration that has been merged. The runner stores a checksum of every applied file and stops if one changes. Write a new migration instead.
 - Update `packages/db/src/schema` in the same pull request so the Drizzle schema matches the SQL.
 
