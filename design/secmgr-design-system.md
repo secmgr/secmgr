@@ -478,6 +478,10 @@ Smoothed corners. Where `corner-shape` is supported, every radius is drawn as a 
 #### Icon
 Every pictogram in secmgr is a Lucide icon (the set shadcn/ui uses), drawn at a 1.75 stroke in the 24 unit grid, in the current text color. No other icon family, no emoji, no brand logos.
 
+![Icon, preview 1 of 2](images/components/Icon-0.png)
+
+![Icon, preview 2 of 2](images/components/Icon-1.png)
+
 - **Sizes.** 14px in badges, chips and `xs` icon buttons; 16px by default; 20px in empty states and callouts. Never scale the stroke.
 - **Color.** Icons inherit `color`. Beside text they take the text's token; alone in a toolbar they take `text-secondary` and lift to `text` on hover.
 - **Meaning.** An icon never carries meaning alone. Pair it with a word, or give it a `label` (and use `IconButton` when it is clickable).
@@ -496,6 +500,10 @@ Every pictogram in secmgr is a Lucide icon (the set shadcn/ui uses), drawn at a 
 
 #### Logo
 The secmgr identity in three parts: the `Mark` (two equal rings, centres one radius apart, woven over and under), the `Wordmark` (the mark and the word "secmgr"), and the `AppIcon` (the rings on a `primary` tile).
+
+![Logo, preview 1 of 2](images/components/Logo-0.png)
+
+![Logo, preview 2 of 2](images/components/Logo-1.png)
 
 - **Anatomy.** The mark is drawn on a 32 unit grid: rings of radius 8.75 centred at x 11.625 and 20.375 on y 16, stroke 2, with a 1.1 gap where one ring passes under the other (a mask clipped to the upper and lower crossings). It draws in `currentColor`, so it takes `text` beside copy and `on-primary` on fills. Every instance gets its own mask ids, so a page can render any number of marks.
 - **Wordmark.** "secmgr" in Geist 500 at the `size` you pass, tracked to -0.035em, always lowercase. The mark is 1.28em tall, sits 0.4em before the word, and centres on the x-height, the same proportions as `secmgr-wordmark.svg`. Use 16 in the sidebar and footers, 20 by default, 24 to 48 on marketing pages.
@@ -528,6 +536,8 @@ The secmgr identity in three parts: the `Mark` (two equal rings, centres one rad
 #### Button
 The control for every action a person takes. Quiet by default, with one `primary` per view for the thing the view exists to do.
 
+![Button, preview 1 of 1](images/components/Button-0.png)
+
 - **Anatomy.** Optional leading icon (16px, 14px at `sm`), label in `body-medium` (`small-medium` at `sm`), optional trailing icon, optional shortcut hint (`Kbd`, size `sm`). Heights come from `control-sm`, `control-md`, `control-lg`. Corners use `--r-6`, smoothed where supported.
 - **Variants.** `primary` fills with `primary` and uses `on-primary`: one per view ("Save 3 changes", "Create project"). `secondary` sits on `surface` with a `border-strong` ring: most actions ("Import .env", "Compare"). `ghost` is transparent with `text-secondary`: toolbars, rows and menus. `danger` fills with `danger`: only the final step of an irreversible action ("Delete environment"), never the first click.
 - **Behaviour.** Hover shifts the fill one step (`primary-hover`, `fill`, `fill-hover`). Press scales to 0.98 for `duration-instant`. Focus draws the `focus` ring at a 2px offset. `loading` swaps the leading icon for a `Spinner`, keeps the label and the width, and blocks clicks. `disabled` drops to `fill` with `text-disabled`.
@@ -552,6 +562,8 @@ The control for every action a person takes. Quiet by default, with one `primary
 #### CopyButton
 The one click copy for values, tokens and CLI commands: the copy icon springs into a check for 1600ms, "Copied" is announced, and the app gets `onCopied` to toast the key and the clipboard timer.
 
+![CopyButton, preview 1 of 1](images/components/CopyButton-0.png)
+
 - **Anatomy.** `icon` reuses the `IconButton` look (`control-xs`, `control-sm`, `control-md`, ghost or `secondary`) with a 16px `copy` icon (14px at `xs`). `text` reuses the small `Button` look with a 14px icon and a label that swaps from "Copy" to "Copied" inside a fixed width grid, so the button never changes size.
 - **Behaviour.** Click, Enter or Space copies `value` (a string, or a function that returns one, sync or async, for values fetched on reveal). On success the `copy` icon shrinks away over `duration-instant` and the `check` scales and rotates in with `ease-spring` over `duration-base`, in `text`; after `timeout` (1600ms) it returns. A polite status outside the button announces "Copied". If the clipboard is blocked the icon turns `danger` and the status says "Copy failed. Select the value and copy it manually." Hover, press and focus follow `IconButton` and `Button`. `copied` forces the confirmed look when something else copied the value, such as the `c` shortcut.
 - **Copy.** `label` is the action with its object: "Copy value", "Copy value of STRIPE_SECRET_KEY", "Copy command", "Copy token". Pair it with a toast from `onCopied`: "Copied STRIPE_SECRET_KEY. Clipboard clears in 30s." Never toast a value itself.
@@ -574,6 +586,8 @@ The one click copy for values, tokens and CLI commands: the copy icon springs in
 
 #### IconButton
 A square button that holds a single icon, for dense places such as secret rows, toolbars and headers. Its label is always there: read by screen readers and shown as a `Tooltip`.
+
+![IconButton, preview 1 of 1](images/components/IconButton-0.png)
 
 - **Anatomy.** One Lucide icon (16px, 14px at `xs`) centred in a square of `control-xs`, `control-sm` or `control-md`. `ghost` by default, `secondary` when it stands alone beside secondary buttons.
 - **Behaviour.** Hover fills with `fill-hover` and lifts the icon to `text`. Press fills with `fill-active` and scales to 0.96. `pressed` marks toggles such as "Reveal value" with `aria-pressed` and a `fill-active` ground; an open menu trigger keeps the same ground through `aria-expanded`. Focus draws the `focus` ring.
@@ -599,6 +613,8 @@ A square button that holds a single icon, for dense places such as secret rows, 
 #### Kbd
 A key cap for keyboard shortcuts, shown in menus, tooltips, buttons and the shortcuts sheet.
 
+![Kbd, preview 1 of 1](images/components/Kbd-0.png)
+
 - **Anatomy.** One cap per key, `mono-sm` in `text-secondary` on `surface` with a `border-strong` ring and a 1px bottom lip. `sm` caps sit inside buttons and menu rows.
 - **Behaviour.** Pass `keys` as a list; `mod` renders ⌘ on macOS and Ctrl elsewhere, `shift` renders ⇧, `enter` renders ↵. Sequences such as `g` then `p` are two caps with no plus sign.
 - **Tones.** `inverse` inherits the parent's text color and sits on `primary` fills (primary buttons, tooltips).
@@ -616,6 +632,8 @@ A key cap for keyboard shortcuts, shown in menus, tooltips, buttons and the shor
 
 #### Checkbox
 A 16px box for choosing rows and toggling options that take effect when a form is saved.
+
+![Checkbox, preview 1 of 1](images/components/Checkbox-0.png)
 
 - **Anatomy.** A `--r-4` box on `surface` with a `border-hover` ring; checked and mixed fill with `primary` and draw a 12px `check` or `minus` in `on-primary`. With `label`, a `body` label and an optional `small` description in `text-secondary` sit to the right and are clickable.
 - **Behaviour.** Click or Space toggles. The mark scales in with `ease-spring` over `duration-fast`. Hover darkens the ring to `text-tertiary`. Focus draws the `focus` ring. `indeterminate` shows the mixed state of a select all box.
@@ -635,6 +653,8 @@ A 16px box for choosing rows and toggling options that take effect when a form i
 
 #### Field
 The frame around one control: a label, an optional description, the control, and a hint that an error replaces, with ids and ARIA wired for you.
+
+![Field, preview 1 of 1](images/components/Field-0.png)
 
 - **Anatomy.** Label in `small-medium` and `text`, with a quiet `*` in `text-tertiary` for `required` or "Optional" in `caption` for `optional`. An optional `description` under the label in `caption`, `text-tertiary`. The control. A foot row with the hint (`caption`, `text-tertiary`) or the error (`caption`, `danger`, 14px `circle-alert`) on the left and the `counter` slot (`caption`, tabular numbers) on the right. Rows sit `space-6` apart.
 - **Layout.** `vertical` stacks everything. `horizontal` puts the label and description in a 200px column with a `space-24` gutter, aligned to the first line of a `control-md` control, for settings pages; below 640px of field width (a container query, so it works inside sheets and split panes) it stacks again.
@@ -659,6 +679,8 @@ The frame around one control: a label, an optional description, the control, and
 
 #### Input
 A single line text control for names, slugs, URLs, keys and values, with its ring, icon and affixes drawn on one wrapper so everything inside reads as one field.
+
+![Input, preview 1 of 1](images/components/Input-0.png)
 
 - **Anatomy.** A wrapper on `surface` with a 1px `border-strong` ring, `shadow-xs` and `--r-6` corners, at `control-sm`, `control-md` or `control-lg`. Inside, in order: an optional leading icon (16px, 14px at `sm`) in `text-tertiary`, an optional `prefix` flush with the value, the native input in `body` (`small` at `sm`), then one trailing slot (a `Spinner`, the clear `IconButton`, or a `Kbd` hint), then an optional `suffix` pinned right in `text-tertiary` with tabular numbers. Placeholder is `text-tertiary`. `mono` sets the value, placeholder and affixes in `mono`.
 - **Behaviour.** Hover moves the ring to `border-hover`. Focus anywhere inside (`:focus-within`) keeps the `border-hover` ring and draws a 1.5px `focus` outline flush against it, and lifts the icon to `text-secondary`; the `kbd` hint hides while focused because the shortcut has done its job. `invalid` turns the ring `danger` (2px on focus) and sets `aria-invalid`. `clearable` shows an `x` while there is a value; clearing fires a real change event with an empty value and keeps focus in the field. `loading` shows a `Spinner` in the trailing slot for async checks. `revealable` on a password adds a "Reveal value" toggle. `readOnly` sits on `bg-subtle`, keeps the text selectable, and with `selectOnFocus` selects the whole value for copying. `disabled` drops to `fill` with a `border` ring and `text-disabled`. Clicking the padding or icon focuses the input.
@@ -694,6 +716,10 @@ A single line text control for names, slugs, URLs, keys and values, with its rin
 #### RadioGroup
 One choice from a short list that stays visible, as dots with labels or as bordered choice cards for decisions with consequences, such as how to handle import conflicts.
 
+![RadioGroup, preview 1 of 2](images/components/RadioGroup-0.png)
+
+![RadioGroup, preview 2 of 2](images/components/RadioGroup-1.png)
+
 - **Anatomy.** Each choice is a 16px round dot (`corner-shape: round`) on `surface` with a `border-hover` ring; the selected dot fills with `primary` and shows a 6px `on-primary` center. Beside it, the label in `body` with an optional 16px icon in `text-secondary`, and an optional description in `small`, `text-secondary`. `cards` wraps each choice in a `--r-8` card with `space-12` padding and a `border-strong` ring; the selected card takes a 1.5px `primary` ring. Card labels are `body-medium`.
 - **Behaviour.** Clicking anywhere on a choice selects it. The group is one tab stop (roving tabindex): Tab lands on the selected choice, or the first enabled one; ArrowDown and ArrowRight move to and select the next choice, ArrowUp and ArrowLeft the previous, wrapping at the ends and skipping disabled ones; Home and End jump; Space selects the focused choice. The center dot scales in with `ease-spring` over `duration-fast`; press scales the dot to 0.92. Hover darkens the ring to `text-tertiary` (cards to `border-hover`). Focus draws the `focus` ring around the dot, or around the whole card. `invalid` rings the unselected dots and cards in `danger`. `disabled` choices sit on `fill` in `text-disabled`.
 - **When to use.** 2 to 5 mutually exclusive options where people should see every option at once. Use `cards` when each option needs a sentence explaining its result. Use `Select` for longer lists, `SegmentedControl` for switching views, and `Switch` for on and off.
@@ -726,6 +752,8 @@ One choice from a short list that stays visible, as dots with labels or as borde
 #### SearchField
 The search box for secrets, projects, members and activity: an `Input` with a `search` icon, a "/" shortcut, a clear button, a live result count and a debounced `onSearch`.
 
+![SearchField, preview 1 of 1](images/components/SearchField-0.png)
+
 - **Anatomy.** The `Input` ring at `control-sm`, `control-md` or `control-lg`, a leading 16px `search` icon in `text-tertiary`, the query, then one trailing slot: the `Kbd` hint for the shortcut while empty, the `x` clear button while there is a query, or a `Spinner` while `loading`. With a query and a `count`, the right edge shows "12 of 24" in `small`, `text-tertiary`, tabular numbers.
 - **Behaviour.** Pressing the `hotkey` ("/" by default) anywhere outside an editable field focuses the search and selects its text; the hint hides while focused. Typing calls `onValueChange` at once, for filtering in place, and `onSearch` after `debounce` ms (150 by default), or at once on Enter. Escape clears the query (and stops there, so a surrounding dialog stays open); a second Escape leaves the field. Clearing calls `onSearch("")` at once. The count is read politely to screen readers as "12 of 24 secrets match". Focus and hover follow `Input`.
 - **Empty results.** Keep the field as typed and show the empty state below it with the query and the scope: "No secrets match 'stripe_live' in staging. Check the spelling or search all environments."
@@ -756,6 +784,8 @@ The search box for secrets, projects, members and activity: an `Input` with a `s
 #### SegmentedControl
 2 to 5 mutually exclusive views or filters in one track, with a thumb that slides to the selected segment: "Table" and "Raw .env", "Matrix" and "Side by side", grid and list.
 
+![SegmentedControl, preview 1 of 1](images/components/SegmentedControl-0.png)
+
 - **Anatomy.** A `fill` track with 2px padding and `--r-6` corners at `control-sm` or `control-md`. Segments are equal width (as wide as the widest, through a grid of `1fr` columns), each with an optional 16px icon (14px at `sm`), a label in `body-medium` (`small-medium` at `sm`) and an optional count in `text-tertiary` with tabular numbers. The thumb is a `--r-4` block on `surface` with `shadow-sm`; in dark it is `fill-active`. Icon only segments are square.
 - **Behaviour.** Click selects. The group is one tab stop on the selected segment; ArrowLeft and ArrowRight (and Up and Down) move and select, wrapping and skipping disabled segments; Home and End jump; Space and Enter select the focused segment. The thumb slides with `transform` only over `duration-base` and `ease-out`, because every segment has the same width. Unselected labels sit in `text-secondary` and lift to `text` on hover; the selected label is `text`. Press dims the label. Focus draws the `focus` ring on the segment. Disabled segments are `text-disabled`; a disabled control drops the thumb to `fill-hover`.
 - **When to use.** Switching how the same content is shown, or filtering a list with counts. The choice applies at once. Use `Tabs` for navigating between different content, `RadioGroup` when each option needs an explanation, `Select` past 5 options.
@@ -785,6 +815,10 @@ The search box for secrets, projects, members and activity: an `Input` with a `s
 
 #### Select
 A trigger styled like `Input` that opens a listbox in a popover, for choosing one environment, key, template or level from a known list.
+
+![Select, preview 1 of 2](images/components/Select-0.png)
+
+![Select, preview 2 of 2](images/components/Select-1.png)
 
 - **Anatomy.** The trigger reuses the `Input` ring (`surface`, `border-strong`, `shadow-xs`, `--r-6`, `control-sm`, `control-md`, `control-lg`) with an optional leading icon or the selected option's `prefix` (an `EnvDot`), the value (or the placeholder in `text-tertiary`), and a 14px `chevrons-up-down` in `text-tertiary`. The menu is a portal on `surface-raised` with `shadow-md`, `--r-8` corners and `space-4` padding; it is at least as wide as the trigger. Options are 32px rows with `--r-6` corners: prefix, icon, label (medium when selected), optional `description` in `caption`, optional `Kbd`, and a reserved 16px column for the `check` so labels never shift. Groups get a `caption` heading and a `border` hairline between them. With `searchable`, a filter row with a `search` icon sits on top behind a `border` hairline.
 - **Behaviour.** Click, Enter, Space or ArrowDown opens the menu on the selected option; ArrowUp opens on the last. Typing a letter on the closed trigger opens it on the first match (or seeds the filter). In the menu, ArrowUp and ArrowDown move the highlight (`fill-hover`), skipping disabled options; Home, End, PageUp and PageDown jump; Enter or Space chooses; typing jumps to the next option that starts with the typed letters; Escape closes and returns focus to the trigger; Tab closes and moves on from the trigger. The pointer highlights on move, not on scroll. The menu enters with `sg-pop-in` over `duration-fast` and `ease-out`, leaves over `duration-instant` with `ease-in`, flips above the trigger when there is no room, and stacks above any dialog or sheet it opens from. Focus ring and `invalid` follow `Input`; the ring only shows for keyboard focus.
@@ -833,6 +867,8 @@ A trigger styled like `Input` that opens a listbox in a popover, for choosing on
 #### Switch
 An on and off toggle for settings that take effect the moment they change, such as "Auto hide revealed values".
 
+![Switch, preview 1 of 1](images/components/Switch-0.png)
+
 - **Anatomy.** A round track (`--radius-full`, `corner-shape: round`) of 32 by 18 (`md`) or 26 by 16 (`sm`) with a 2px inset thumb. Off: `border-hover` track with a `surface` thumb with `shadow-sm` (`text-secondary` in dark so it reads on the dark track). On: `primary` track with an `on-primary` thumb. With `label`, a `body` label and an optional `small` description in `text-secondary` sit beside it and are clickable.
 - **Behaviour.** Click, Space or Enter toggles. The thumb slides with `ease-spring` over `duration-base`; pressing stretches it to 1.2 times its width from the side it rests on. Hover shifts the track (`text-disabled` off, `primary-hover` on). Focus draws the round `focus` ring. `loading` shows a spinner in the thumb and ignores clicks while the change saves; update the description to say what is happening ("Saving for 5 members"). `disabled` drops the track to `fill` (`text-disabled` when on).
 - **Layout.** `labelPosition="end"` puts the label after the switch, like `Checkbox`, for inline filters ("Show differences only"). `labelPosition="start"` spans the row with the label on the left and the switch on the right edge, for settings lists.
@@ -856,6 +892,8 @@ An on and off toggle for settings that take effect the moment they change, such 
 
 #### Textarea
 A multi line text control for secret notes and raw .env text, sharing the `Input` ring so forms read as one family.
+
+![Textarea, preview 1 of 1](images/components/Textarea-0.png)
 
 - **Anatomy.** A wrapper on `surface` with a 1px `border-strong` ring, `shadow-xs` and `--r-6` corners. Inside, the native textarea in `body` (`mono` in Geist Mono) with `space-6` by `space-10` padding, and an optional footer with the counter in `caption`, `text-tertiary`, tabular numbers.
 - **Behaviour.** Hover moves the ring to `border-hover`; focus keeps the `border-hover` ring and draws a 1.5px `focus` outline flush against it; `invalid` turns it `danger`. `autoGrow` fits the height to the content between `minRows` and `maxRows` on every change and when the width changes, then scrolls; the resize handle is off while it grows. Without `autoGrow` people can drag the height. The counter turns `warning` at 90 percent of the limit and `danger` past a soft limit. `readOnly` sits on `bg-subtle`; `disabled` drops to `fill` with `text-disabled`.
@@ -887,6 +925,8 @@ A multi line text control for secret notes and raw .env text, sharing the `Input
 #### Breadcrumbs
 The trail at the start of the panel header that says where you are: workspace, project, environment. Each level can carry a switcher, Vercel style.
 
+![Breadcrumbs, preview 1 of 1](images/components/Breadcrumbs-0.png)
+
 - **Anatomy.** Crumbs in `body-medium` (`mono-medium` for slugs with `mono`), 28px tall with `--r-6` corners, an optional 16px icon or node (a 16px `AppIcon` for the workspace) or an 8px `EnvDot` for an environment. Crumbs are separated by a thin "/" in `text-tertiary` at weight 300, never chevrons. A crumb with `switcher` gets a `chevrons-up-down` `IconButton` at `xs` right after it.
 - **States.** Earlier crumbs rest in `text-secondary` and lift to `text` on hover; press fills with `fill`; focus draws the `focus` ring. The last crumb is the current page: `text`, not a link, `aria-current="page"`.
 - **Behaviour.** Crumbs with `href` are links, crumbs with only `onClick` are buttons. The switcher opens a menu of siblings (projects, environments); pass a node to `switcher` to attach a `Menu` with its own trigger. Long labels truncate with an ellipsis at 240px and show the full name as a tooltip; the current page shrinks last.
@@ -916,6 +956,8 @@ The trail at the start of the panel header that says where you are: workspace, p
 
 #### Sidebar
 The navigation column on the `bg` ground: the workspace switcher, the destinations, the projects with their environments, and the signed-in member.
+
+![Sidebar, preview 1 of 1](images/components/Sidebar-0.png)
 
 - **Anatomy.** `Sidebar` stacks three slots: `header` (pinned), the scrolling `nav` list, and `footer` (pinned). `SidebarHeader` is `--header` tall with an 8px top inset, so the workspace row centres on the panel's header row; it holds a `WorkspaceButton` (20px `AppIcon`, the name in `body-medium`, `chevrons-up-down` in `text-tertiary`) and up to two `sm` `IconButton`s. `SidebarSection` starts 16px below the item above it with an `overline` label in `text-tertiary`. `NavItem` is 30px tall with `--r-6` corners, a 16px icon or an 8px `EnvDot`, the label in `small-medium`, then a shortcut, a trailing node and a tabular count in `caption` `text-tertiary`. `SidebarUser` shows initials on a round `env-blue-soft` tile with `env-blue-text`, the name and one detail line.
 - **States.** Labels rest in `text-secondary` with icons in `text-tertiary`. Hover fills with `fill` and lifts the label to `text`. The current page (`active`) fills with `fill-hover`, sets `text` on label and icon, and carries `aria-current="page"`. Focus draws the `focus` ring. Disabled drops to `text-disabled` and ignores clicks.
@@ -986,6 +1028,8 @@ The navigation column on the `bg` ground: the workspace switcher, the destinatio
 #### Tabs
 A row of tabs that switches views in place: `underline` for the views of a page (environments, project sections), `pills` for filters inside a view.
 
+![Tabs, preview 1 of 1](images/components/Tabs-0.png)
+
 - **Anatomy.** A tab is a 40px hit area (36px at `sm`) holding a 28px inner pill (24px at `sm`) with `--r-6` corners: an optional 16px icon or 8px `EnvDot`, the label in `small-medium`, and an optional tabular count in `caption` `text-tertiary`. `underline` draws a 1px `border` hairline under the row and a 2px `text` indicator under the selected pill. `pills` fills the selected pill with `fill`.
 - **States.** Labels rest in `text-secondary`. Hover lifts the label to `text` and, in `underline`, fills the pill with `fill`. Press fills with `fill-hover`. The selected tab uses `text` and its count moves to `text-secondary`. Focus draws the `focus` ring around the pill. Disabled uses `text-disabled` and is skipped by the keyboard.
 - **Behaviour.** The indicator slides to the new tab with `ease-out` over `duration-base` (transform only, so it never reflows). Arrow Left and Right move focus and select at once (automatic activation), wrapping at the ends; Home and End jump to the first and last. Only the selected tab is in the Tab order. When the row is wider than its container it scrolls sideways without a scrollbar, fades 24px at the clipped edge, and keeps the selected tab in view.
@@ -1026,6 +1070,12 @@ A row of tabs that switches views in place: `underline` for the views of a page 
 #### AppShell
 The frame of every signed-in screen: the `Sidebar` on the `bg` ground and the page on an inset `surface` panel with its own header row. Only the panel scrolls.
 
+![AppShell, preview 1 of 3](images/components/AppShell-0.png)
+
+![AppShell, preview 2 of 3](images/components/AppShell-1.png)
+
+![AppShell, preview 3 of 3](images/components/AppShell-2.png)
+
 - **Anatomy.** A two column grid: the sidebar at `--sidebar` (240px) and the panel. The panel is inset 8px from the top, right and bottom, with `--r-12` corners and `shadow-sm`, so it reads as a sheet of paper resting on the ground (Linear's inset panel). Inside it, a `--header` (48px) row with a 1px `border` hairline under it holds the sidebar toggle, a 16px divider in `border-strong`, and your `header` content (usually `Breadcrumbs`, with actions pushed right). Below it the page scrolls on its own; the sidebar and the header never move.
 - **Collapsed.** On wide screens the header starts with a `panel-left` `IconButton` ("Collapse sidebar", "Expand sidebar") that switches the sidebar to a 56px icon rail. Control it with `sidebarCollapsed`, or leave it uncontrolled with `defaultSidebarCollapsed`. Hide the toggle with `collapsible={false}`.
 - **Small screens.** Under 768px of its own width the panel runs full bleed with no inset, radius or shadow, and the toggle becomes a `menu` `IconButton` ("Open navigation"). It opens the sidebar as a drawer from the left: `bg` ground, `--r-12` on the open edge, `shadow-lg`, over an `overlay` scrim. It slides in with `ease-out` over `duration-base` and out faster with `ease-in`. While open it is a modal dialog: focus moves into it and is trapped, Escape or a click on the scrim closes it and returns focus to the menu button, and choosing a destination closes it.
@@ -1052,6 +1102,8 @@ The frame of every signed-in screen: the `Sidebar` on the `bg` ground and the pa
 #### Card
 A flat `surface` with a 1px `border` ring and `--r-8` corners that groups one thing: a project, a health summary, a setting group, a snippet.
 
+![Card, preview 1 of 1](images/components/Card-0.png)
+
 - **Anatomy.** Optional header (title in `heading`, one line of `description` in `small` `text-secondary`, `actions` top right), a body, and an optional `footer`: a strip on `bg-subtle` under a hairline, in `small` `text-secondary`, for recency and status ("Updated 4 min ago", "3 issues"). Padding is 16px (`md`), 12px (`sm`) or 24px (`lg`). `none` runs the body edge to edge for a `Table`, `SettingRow`s or list rows; the header keeps 16px and gains a hairline under it.
 - **Elevation.** None. Cards never carry a shadow at rest; hierarchy comes from the ring and the ground.
 - **Interactive.** With `interactive` and `href` or `onClick`, the title becomes a link stretched over the whole card: hover draws a `border-hover` ring, `shadow-sm` and a 1px lift over `duration-fast` with `ease-out`; press settles back; keyboard focus draws the `focus` ring around the card. Buttons in `actions`, the footer and the body stay separately clickable above the link.
@@ -1075,6 +1127,10 @@ A flat `surface` with a 1px `border` ring and `--r-8` corners that groups one th
 
 #### CodeBlock
 A read only snippet for the CLI, a `.env` file or an export, with light highlighting from the `code-*` tokens and a copy button that swaps to a check.
+
+![CodeBlock, preview 1 of 2](images/components/CodeBlock-0.png)
+
+![CodeBlock, preview 2 of 2](images/components/CodeBlock-1.png)
 
 - **Anatomy.** A `bg-subtle` block with a `border` hairline and `--r-8` corners, set in `code` (13/22 Geist Mono) with 12px vertical and 16px horizontal padding. An optional 36px header on a hairline holds either a `title` (a `file-text` icon and the file name in `mono-sm`) or small underline `Tabs` (brew, npm, curl), with the copy `IconButton` at `xs` on the right. Without a header the copy button floats top right and appears on hover and focus (always on touch).
 - **Highlighting.** Quiet and token based, never a rainbow. `shell`: a `$` prompt in `text-tertiary` that cannot be selected, the command in `text` at weight 500, arguments in `text`, flags in `text-secondary`, strings in `code-value`, `${REFS}` in `code-ref`, output lines in `text-secondary`. `dotenv`: keys in `code-key`, `=` and quotes in `code-punct`, values in `code-value`, references in `code-ref`, comments in italic `code-comment`. `json` and `yaml`: keys, punctuation and values the same way.
@@ -1110,6 +1166,8 @@ A read only snippet for the CLI, a `.env` file or an export, with light highligh
 #### PageHeader
 The top of every page inside the panel: what this is, the numbers that matter, what you can do, and the views of it.
 
+![PageHeader, preview 1 of 1](images/components/PageHeader-0.png)
+
 - **Anatomy.** An optional leading 32px tile (`bg-subtle`, `border` hairline, `--r-8`, a 16px icon in `text-secondary`) or any node. The title in `title-lg` with `meta` badges beside it. One line of `description` in `small` `text-secondary`, capped at `--prose`. `actions` on the right, top aligned with the title. `tabs` sit under the header on a `border` hairline that runs the full width; the first tab's label lines up with the title.
 - **Spacing.** 24px above, 32px at the sides (16px under 640px), 12px between the header and its tabs. `flush` removes the side padding when the column is already padded.
 - **Behaviour.** Static. Under 640px of its own width (a container query, so it responds to the panel, not the window) the actions wrap below the title and the side padding drops to 16px. Long titles wrap, never truncate.
@@ -1130,6 +1188,12 @@ The top of every page inside the panel: what this is, the numbers that matter, w
 
 #### ProjectCard
 A project in the projects list, as a card in the grid or a dense row in the list: its name, linked repo, environments with secret counts, health and the latest change. The whole card opens the project.
+
+![ProjectCard, preview 1 of 3](images/components/ProjectCard-0.png)
+
+![ProjectCard, preview 2 of 3](images/components/ProjectCard-1.png)
+
+![ProjectCard, preview 3 of 3](images/components/ProjectCard-2.png)
 
 - **Anatomy, grid.** `surface` with a `border` hairline and `--r-8` corners, 16px padding. The name in `heading`; the repo under it with a 14px `folder-git-2` in `text-tertiary` and `lumen-labs/lumen-api` in `mono-sm` `text-secondary`. Environments as `EnvBadge` `dot` `sm` with their counts, wrapping. A `border` hairline, then the health line in `small-medium` ("3 issues" in `warning` with `triangle-alert`, or "Healthy" in `success` with `circle-check`) and the latest change in `small` `text-secondary` with its time in `text-tertiary` after a middle dot. The star and the `menu` slot sit top right.
 - **Anatomy, row.** One 56px line on a transparent ground with `--r-6` corners: name and repo, environments as 6px `EnvDot`s with counts (the name is in the tooltip), health, the latest change, then star and menu. Columns keep fixed tracks so a list of rows aligns. Below 640px of card width the row stacks like a small card.
@@ -1165,6 +1229,8 @@ A project in the projects list, as a card in the grid or a dense row in the list
 #### SettingRow
 One setting on one row: its name and consequence on the left, its control on the right. `SettingsGroup` stacks rows inside a flush `Card` under a title.
 
+![SettingRow, preview 1 of 1](images/components/SettingRow-0.png)
+
 - **Anatomy.** `SettingRow`: label in `body-medium` `text`, description in `small` `text-secondary` (inline `code` in `mono-sm`), control right aligned, 16px padding, 24px between text and control. Rows are separated by a 1px `border` hairline. `SettingsGroup`: title in `heading`, optional description in `small` `text-secondary`, 12px above a `Card` with `padding="none"`.
 - **Danger.** `danger` on a row sets its label in `danger`; `danger` on a group tints the title and the card ring toward `danger`. Keep the button itself `secondary`: the destructive `danger` button belongs to the confirmation dialog that follows ("Delete lumen-api? Type lumen-api to confirm.").
 - **Behaviour.** Static layout. When the row is narrower than 520px (a container query, so it responds to the column, not the window) the control moves under the text and aligns left. Settings that apply immediately use a `Switch` or a segmented control; settings saved with a form use a `Checkbox`.
@@ -1191,6 +1257,8 @@ One setting on one row: its name and consequence on the left, its control on the
 #### StatTile
 One headline number with its label, the change that matters, and an optional quiet trend line. Four of them open the project overview: "Secrets 89", "Environments 4", "Changes this week 17", "Issues 3".
 
+![StatTile, preview 1 of 1](images/components/StatTile-0.png)
+
 - **Anatomy.** A `surface` tile with a `border` hairline and `--r-8` corners, 12px by 16px padding. The label in `small` `text-secondary` with an optional 14px icon in `text-tertiary`; the value in `title-lg` with tabular figures; the delta in `caption`. An optional 96 by 32 sparkline sits bottom right: the area in `fill`, a 1.5px `text-tertiary` line with round joins, and a 7px `text` dot with a 2px `surface` ring on the last point.
 - **Delta.** Name the period and sign the change: "+3 this week", "+5 on last week", "1 new today". Tone follows meaning, not direction: `success` when the change is good ("2 fewer than last month" tokens), `warning` or `danger` when it needs attention, `text-tertiary` otherwise. Long deltas truncate.
 - **Sparkline.** Twelve points, oldest first, one series, no axes. Hovering reads the nearest point in place of the delta ("Sep 26 · 5 changes") and moves the dot there with a `border-strong` crosshair. The SVG carries a summary for screen readers ("Sep 19 to Sep 30: from 1 to 2 changes").
@@ -1215,6 +1283,10 @@ One headline number with its label, the change that matters, and an optional qui
 
 #### Table
 A dense, keyboard first data table for tokens, members, activity and secrets: a sticky header, hairline rows, optional selection, Linear style groups, and loading and empty states.
+
+![Table, preview 1 of 2](images/components/Table-0.png)
+
+![Table, preview 2 of 2](images/components/Table-1.png)
 
 - **Anatomy.** A header row on `bg-subtle` with labels in `small-medium` `text-tertiary`, then rows of `--row` (44px) or `--row-compact` (36px) separated by 1px `border` hairlines. Cells have 12px side padding (16px at the table edges), `small` text in `text-secondary`, and the first column in `text`. `mono` columns use `mono`; `align="right"` columns use tabular numerals. `selectable` adds a 32px column of 16px `Checkbox`es and a select all box that shows the mixed state. Group headers are `row-compact` tall on `bg-subtle` with a chevron, an optional icon, the label in `small-medium` and a tabular count in `text-tertiary`. `framed` adds a `border` ring and `--r-8` corners.
 - **States.** Row hover fills with `fill`; selected rows sit on `accent-soft`; the focused row draws a 1.5px `focus` ring inset by 2px so it is never clipped by the scroll edge. Loading draws skeleton bars in `fill-hover` that pulse and match the columns, and sets `aria-busy`. With no rows the `empty` node (an inline `EmptyState`) fills the body.
@@ -1271,6 +1343,10 @@ A dense, keyboard first data table for tokens, members, activity and secrets: a 
 #### CommandMenu
 The ⌘K palette: jump to a project, environment or secret, or run an action, without leaving the keyboard.
 
+![CommandMenu, preview 1 of 2](images/components/CommandMenu-0.png)
+
+![CommandMenu, preview 2 of 2](images/components/CommandMenu-1.png)
+
 - **Anatomy.** A 640px panel on `surface-raised` with `--r-12` corners and `shadow-xl`, placed 18 percent from the top over a lighter overlay than `Dialog` (the `overlay` token at 55 percent, no blur). A 48px input row with a `search` icon, page chips and a spinner while `loading`, above a `border` hairline. A scrolling list of groups: headings in `caption` `text-tertiary`, 40px items with a 16px icon (or an `EnvDot`), the label in `body` (mono for keys, slugs and projects), a `hint` in `small` `text-tertiary`, a `Kbd` at the right and a `chevron-right` for items that open a page. A footer with `Kbd` hints: "↑↓ to navigate", "↵ to select", "esc to close". Under 640px it fills the width 8px from the top.
 - **Behaviour.** Opens on ⌘K (Ctrl K elsewhere) through `hotkey`, with focus in the input, and returns focus where it was on close. Typing filters every group: a substring match ranks highest (more at the start of a word), then an in-order subsequence that starts a word, so "strpe" finds `STRIPE_SECRET_KEY`; `hint` and `keywords` match as plain substrings. Matched characters are set in 600 weight with a hairline underline. Groups with no matches hide and reorder by their best match. "Recent" shows only while the query is empty.
 - **Keyboard.** ArrowDown and ArrowUp (and Ctrl N, Ctrl P) move with wrap; Home and End jump to the ends; Enter selects. The active item has `fill-hover` and is scrolled into view; the pointer moves it too. Escape goes back one page, then closes. Selecting an item with `page` pushes it: its title shows as a chip before the input, the placeholder changes, and Backspace on an empty input (or a click on the chip) goes back.
@@ -1321,6 +1397,10 @@ The ⌘K palette: jump to a project, environment or secret, or run an action, wi
 #### Dialog
 A modal window for one focused task (add a secret, rename an environment) or one decision (`ConfirmDialog`). The page behind is dimmed, blurred and inert until you leave.
 
+![Dialog, preview 1 of 2](images/components/Dialog-0.png)
+
+![Dialog, preview 2 of 2](images/components/Dialog-1.png)
+
 - **Anatomy.** An overlay in `overlay` with a 2px backdrop blur, and a panel on `surface` with `--r-12` corners and `shadow-lg`, `dialog-sm` (400), `dialog-md` (520) or `dialog-lg` (760) wide. The header holds the title in `title`, the description in `body` `text-secondary`, and a `sm` close `IconButton` ("Close", Esc). The body scrolls on its own when the dialog is taller than the viewport. The footer is a strip on `bg-subtle` above a `border` hairline, buttons at the right with the primary last. Under 480px the dialog sits at the bottom of the screen and footer buttons stack full width, primary on top.
 - **Behaviour.** Opens at `z-dialog` in a portal and locks page scroll. Focus moves to the element marked `data-autofocus`, else the first field in the body, else the first button in the footer, and is trapped: Tab and Shift Tab cycle inside. Escape, the close button and an overlay click close it (`closeOnOverlay={false}` for forms that would lose typed input), and focus returns to the element that opened it. `role="dialog"`, `aria-modal`, `aria-labelledby` the title and `aria-describedby` the description.
 - **Motion.** The overlay fades in and the panel enters with `sg-pop-in`, both over `duration-base` with `ease-out`. Leaving fades and scales to 0.98 over `duration-fast` with `ease-in`.
@@ -1359,6 +1439,8 @@ A modal window for one focused task (add a secret, rename an environment) or one
 
 #### Menu
 A dropdown list of actions opened from a trigger, such as the "More actions" button on a secret row or the workspace switcher. Every item works from the keyboard.
+
+![Menu, preview 1 of 1](images/components/Menu-0.png)
 
 - **Anatomy.** A panel on `surface-raised` with `shadow-md`, `--r-8` corners, 4px padding, at least 200px and at most 320px wide. Items are 32px tall with `--r-6` corners: a 16px icon in `text-secondary` (or an `EnvDot`), the label in `body`, an optional `caption` description in `text-tertiary`, and a `Kbd` (`sm`) at the right. `MenuLabel` is an `overline` heading in `text-tertiary`. `MenuSeparator` is a full bleed 1px `border` line. `MenuSub` items end in a `chevron-right`. `MenuCheckboxItem` draws a `check` in the icon slot; `MenuRadioItem` draws a 6px dot at the right.
 - **States.** The highlighted item fills with `fill-hover` and lifts its icon to `text`; pressed fills with `fill-active`. `tone="danger"` items use `danger` text and highlight with `danger-soft`. Disabled items drop to `text-disabled` and are skipped by the keyboard. An open submenu keeps its trigger highlighted.
@@ -1436,6 +1518,8 @@ A dropdown list of actions opened from a trigger, such as the "More actions" but
 #### Popover
 A floating panel anchored to a trigger for one small task that needs interaction: filtering the secrets table, sharing a one time link, setting a rotation policy.
 
+![Popover, preview 1 of 1](images/components/Popover-0.png)
+
 - **Anatomy.** A panel on `surface-raised` with `shadow-md`, `--r-8` corners and 12px padding, sized by its content and kept 8px inside the viewport. It renders in a portal at `z-popover` (one step above the surrounding dialog or sheet when nested). No arrow.
 - **Placement.** `side` is `bottom` and `align` is `start` by default, 6px from the anchor, flipping to the opposite side when there is no room. Anchor to the `trigger`, or pass `anchorRef` with a controlled `open` to anchor to anything (a table cell, a selection).
 - **Behaviour.** The trigger toggles it on click and carries `aria-haspopup="dialog"`, `aria-expanded` and `aria-controls`. On open, focus moves to the first focusable element inside (or the panel). Escape and a click outside close it and return focus to the trigger. Tab past the last element closes it and continues to the element after the trigger; Shift Tab before the first returns to the trigger. Wrap a button in `PopoverClose` to close from inside.
@@ -1465,6 +1549,8 @@ A floating panel anchored to a trigger for one small task that needs interaction
 #### Sheet
 A panel that slides in from the right edge for detail views and longer tasks: a secret's values across environments, the import preview, a member's access. Under 640px it rises from the bottom.
 
+![Sheet, preview 1 of 1](images/components/Sheet-0.png)
+
 - **Anatomy.** A panel on `surface` with `--r-12` corners, inset 8px from the top, right and bottom edges, `sheet` (520) wide and never wider than the screen. The header holds the title in `title`, a one line description in `small` `text-secondary`, an `actions` slot for `sm` `IconButton`s and a "More actions" `Menu`, and the close button ("Close", Esc), above a `border` hairline. The body scrolls. The footer is a sticky strip on `bg-subtle` with buttons at the right, primary last. Under 640px it becomes a bottom sheet up to 85 percent of the height with a grabber bar, and footer buttons share the width.
 - **Modal.** By default the sheet dims the page with `overlay` and a 2px blur, traps focus, locks scroll, and closes on Escape, the close button or an overlay click. It sits at `z-sheet`, below dialogs, so a `ConfirmDialog` opened from its footer stacks on top.
 - **Side peek.** `modal={false}` drops the overlay, the trap and the scroll lock: the page stays usable beside it, as in a Notion side peek. It carries `shadow-xl` to separate it from the page. Escape still closes it. Use it for reading a row's detail while scanning the table; keep the row highlighted.
@@ -1493,6 +1579,10 @@ A panel that slides in from the right edge for detail views and longer tasks: a 
 
 #### Toast
 A short, temporary message that pairs an action with its result ("Copied STRIPE_SECRET_KEY. Clipboard clears in 30s.") and offers the way back ("Undo"). Call `toast()` from anywhere; render one `Toaster`.
+
+![Toast, preview 1 of 2](images/components/Toast-0.png)
+
+![Toast, preview 2 of 2](images/components/Toast-1.png)
 
 - **Anatomy.** A 360px card on `surface-raised` with `--r-8` corners and `shadow-md`: a 16px icon, the title in `small-medium`, an optional description in `small` `text-secondary`, and an optional `sm` secondary `Button` for the action. Tones color the icon only (`success`, `warning`, `danger`); the card stays neutral. A 20px round close button sits on the top left corner and shows on hover and focus (always on touch).
 - **Stack.** Newest in front at the bottom right, 16px from the edges (bottom centre under 640px). Up to 3 show at once: the ones behind are lifted 14px each, scaled down 5 percent each and matched to the front card's height, with their content hidden. Hovering or focusing the stack expands it into a column with 8px gaps. Older toasts wait behind the third and move up as others leave.
@@ -1529,6 +1619,8 @@ A short, temporary message that pairs an action with its result ("Copied STRIPE_
 #### Tooltip
 A short label for one trigger: ink on paper, no arrow, shown after a hover delay or at once on keyboard focus.
 
+![Tooltip, preview 1 of 1](images/components/Tooltip-0.png)
+
 - **Anatomy.** Text in `caption` on a `primary` fill with `on-primary` text, `--r-6` corners, 4px by 8px padding, `shadow-md`, at most 240px wide and wrapping after that. An optional shortcut follows the text as `Kbd` caps in the `inverse` tone. No arrow. It renders in a portal at `z-tooltip` and never takes pointer events.
 - **Placement.** `side` is `top` by default; `align` is `center`. It sits 6px from the trigger, flips to the opposite side when there is no room, and stays 8px inside the viewport.
 - **Behaviour.** Opens 450ms after the pointer rests on the trigger, and at once on keyboard focus (focus that arrives by Tab, not by a click or a restored focus). When another tooltip closed less than 300ms ago the next one opens instantly and without animation, so moving along a toolbar reads as one label that follows the pointer. Only one tooltip is open at a time. Closes on pointer leave, pointer down, blur, Escape and any scroll. Stays closed while the trigger's menu is open (`aria-expanded="true"`). Touch never opens it.
@@ -1559,6 +1651,8 @@ A short label for one trigger: ink on paper, no arrow, shown after a hover delay
 #### Badge
 A short label for a status, a count or a property, set in `caption` at medium weight on a 20px chip with `--r-4` corners.
 
+![Badge, preview 1 of 1](images/components/Badge-0.png)
+
 - **Tones.** `neutral` for counts and properties ("24 secrets", "Sensitive"). `accent` for new things. `success`, `warning` and `danger` for states: each pairs its `-soft` ground with its text token, and always carries a word ("In sync", "Rotation due", "Missing in production"), plus an icon when there is room. Never color alone.
 - **Variants.** `soft` by default. `outline` sits in dense tables where many badges would otherwise shout.
 - **Dot.** `dot` adds a 6px circle for live states. It keeps `corner-shape: round`.
@@ -1575,6 +1669,8 @@ A short label for a status, a count or a property, set in `caption` at medium we
 
 #### Callout
 A tinted note inside a page that states a fact about what you are looking at and, when there is one, the fix.
+
+![Callout, preview 1 of 1](images/components/Callout-0.png)
 
 - **Anatomy.** A 16px icon in the tone color, a `body-medium` title in `text`, detail in `small` `text-secondary` (inline `code` in `mono-sm` `text`), an optional `sm` action on the right, and an optional `xs` close button. 12px padding, `--r-8` corners, the tone's soft ground with a faint ring mixed from the tone color.
 - **Tones.** `info` on `accent-soft` with an `info` icon, for guidance. `success` on `success-soft` with `circle-check`, after a completed step. `warning` on `warning-soft` with `triangle-alert`, for something due. `danger` on `danger-soft` with `circle-alert`, for a real risk. `neutral` on `bg-subtle` with a `border` ring, for standing rules such as a protected environment (pass `icon="lock"`). Color never works alone: every callout has an icon and words.
@@ -1596,6 +1692,10 @@ A tinted note inside a page that states a fact about what you are looking at and
 #### EmptyState
 What an empty place is for and the one step that fills it, from a whole page ("Start with one project") down to a table with no matches.
 
+![EmptyState, preview 1 of 2](images/components/EmptyState-0.png)
+
+![EmptyState, preview 2 of 2](images/components/EmptyState-1.png)
+
 - **Anatomy.** A 40px tile (`--r-12`, `bg-subtle`, `border` hairline) with a 20px icon in `text-secondary`; the title; one or two sentences of `description` in `text-secondary` capped at `--dialog-sm`; `actions`; and an optional left aligned `hint` (a `CodeBlock`) capped at `--dialog-md`. Everything is centred.
 - **Variants.** `page`: 48px above and below, the title in `display-sm` (Geist 36px at 500, tracked to -0.025em), body text in `body`, 24px before the actions and 32px before the hint. Use it when a whole page or panel is empty. `inline`: 32px padding, the title in `heading`, the description in `small`, one `sm` button. Use it inside tables (`Table` `empty`), cards and menus.
 - **Behaviour.** Static. The action does the thing that ends the empty state; after it, the content replaces the empty state in place.
@@ -1615,6 +1715,10 @@ What an empty place is for and the one step that fills it, from a whole page ("S
 
 #### InsightRow
 A health finding with its evidence and one fix: a live key outside production, a key missing in an environment, a rotation that is overdue, values shared between environments.
+
+![InsightRow, preview 1 of 2](images/components/InsightRow-0.png)
+
+![InsightRow, preview 2 of 2](images/components/InsightRow-1.png)
 
 - **Anatomy.** A `surface` row with a `border` hairline and `--r-8` corners. A 28px tile with `--r-6` corners on the severity's soft ground: `danger-soft` with `circle-alert` in `danger`, `warning-soft` with `triangle-alert` in `warning`, `fill` with `info` in `text-secondary`. The title in `body-medium` `text`, the description in `small` `text-secondary` (keys inside in `mono-sm`), then the evidence: affected keys as `mono-sm` chips on `fill` with `--r-4` corners and the environments as `EnvBadge`s at `sm`. At the right: the fix as a secondary `Button` at `sm`, `bell-off` "Snooze for 7 days" and `x` "Dismiss" as `IconButton`s, and an optional `menu`.
 - **Compact.** One 36px line for the project overview: the 16px severity icon in its color, the title in `small-medium` (truncates), the affected environments as 6px `EnvDot`s, and the fix as a ghost `Button` in a fixed 136px column so a list of rows aligns. Hover fills `bg-subtle`.
@@ -1649,6 +1753,8 @@ A health finding with its evidence and one fix: a live key outside production, a
 #### Progress
 A 4px bar for work people wait on: importing a .env, exporting, rotating keys, decrypting an environment, or how close a secret is to its rotation date.
 
+![Progress, preview 1 of 1](images/components/Progress-0.png)
+
 - **Anatomy.** A `fill` track with `--radius-full` and `corner-shape: round`, and a fill in `text` (neutral) or the tone token. Above it, an optional head row: the `label` in `small-medium`, `text` (with a 14px `circle-check`, `triangle-alert` or `circle-alert` for tones) and the value text at the right in `small`, `text-secondary`, tabular numbers ("12 of 24", or the percent with `showValue`). Below it, an optional `hint` in `caption`, `text-tertiary` (`danger` for the danger tone).
 - **Behaviour.** Determinate fills by sliding a full width bar with `transform` over `duration-slow` and `ease-out`, so the leading edge stays round at every value. Indeterminate slides a 40 percent bar across over 2 times `duration-reveal` with `ease-in-out`; with reduced motion it rests in the middle. The track is a `progressbar` with `aria-valuenow`, `aria-valuemax` and the value text; indeterminate omits the numbers.
 - **Tones.** `neutral` while working. `success` when done ("Imported 24 secrets to staging"), `warning` near a limit ("81 of 90 days" before a rotation is due), `danger` when it stopped ("Import stopped at line 18 of 24"). Change the label with the tone; never rely on color alone.
@@ -1669,6 +1775,10 @@ A 4px bar for work people wait on: importing a .env, exporting, rotating keys, d
 
 #### Skeleton
 A placeholder in the shape of the content that is on its way, so the page keeps its layout while secrets decrypt or a list loads.
+
+![Skeleton, preview 1 of 2](images/components/Skeleton-0.png)
+
+![Skeleton, preview 2 of 2](images/components/Skeleton-1.png)
 
 - **Anatomy.** Blocks on `fill-hover` with `--r-4` corners (`--r-6` for `block`, round for `circle`). `text` draws bars 10px tall on a 20px rhythm, the last of several at 62 percent width. `SkeletonRows` mimics a secret row at `row` (44px) or `row-compact` (36px): a 16px selection box, a 12px key bar in a column up to 240px, a run of 4px masked value dots, a 20px avatar and a time bar, with `border` hairlines between rows. Below 520px of width it keeps only the box, key and avatar.
 - **Behaviour.** Pulses in opacity only (`sg-pulse`, down to 45 percent) over 2 times `duration-reveal` with `ease-in-out`, never a gradient sweep. Each row starts `duration-instant` after the one above, so the table breathes top to bottom. Reduced motion stops the pulse and leaves the static shape. Skeleton pieces are hidden from screen readers; `SkeletonRows` is a `status` region that announces its `label` once.
@@ -1693,6 +1803,8 @@ A placeholder in the shape of the content that is on its way, so the page keeps 
 #### Spinner
 An indeterminate loading indicator in the Apple and Vercel style: 8 round capped spokes fading from full to 30 percent, ticking one spoke at a time through a full turn every 800ms, in the current text color.
 
+![Spinner, preview 1 of 1](images/components/Spinner-0.png)
+
 - **Use** it inside buttons (through `Button` `loading`), beside a status line ("Decrypting 24 secrets"), or centred in a region that is loading for longer than 400ms. For page and table loads prefer `Skeleton` rows that match the final layout.
 - **Always** say what is loading next to it, or give it a `label` for screen readers.
 - **Reduced motion** stops the rotation; the spokes stay visible as a static loading mark.
@@ -1708,6 +1820,10 @@ An indeterminate loading indicator in the Apple and Vercel style: 8 round capped
 
 #### ChangesBar
 The floating bar that holds every staged edit until you save it: what changed, which environment it goes to, and the three ways out.
+
+![ChangesBar, preview 1 of 2](images/components/ChangesBar-0.png)
+
+![ChangesBar, preview 2 of 2](images/components/ChangesBar-1.png)
 
 - **Anatomy.** A 44px bar on `surface-raised` with `--r-12` corners and `shadow-lg`, docked at the bottom centre of the panel on `z-sticky`, 16px above the edge. Left to right: the summary in `small` `text-secondary` with a 2px colored tick and a `text` medium count per kind ("2 edited · 1 new · 1 deleted", ticks in `diff-change-text`, `diff-add-text`, `diff-remove-text`), a hairline divider, the target `EnvBadge` (sm, with its lock when protected), then "Discard" (ghost), "Review" (secondary) and the primary "Save 4 changes" with the mod+s hint.
 - **Behaviour.** The bar rises in with `ease-spring` over `duration-slow` when the first change is staged and sinks out with `ease-in` over `duration-fast` when the last one is saved or discarded; counts update in place. mod+s saves from anywhere on the page while it is open. `saving` swaps the Save label for a Spinner and "Saving" and disables Discard and Review. `error` replaces the summary with a `danger` "Could not save. 4 changes kept." and the primary action becomes "Retry"; nothing staged is lost.
@@ -1739,6 +1855,10 @@ The floating bar that holds every staged edit until you save it: what changed, w
 
 #### EnvEditor
 The Raw .env mode of an environment: edit every secret as text, with the syntax colored, the lines numbered, and every problem marked before you stage it.
+
+![EnvEditor, preview 1 of 2](images/components/EnvEditor-0.png)
+
+![EnvEditor, preview 2 of 2](images/components/EnvEditor-1.png)
 
 - **Anatomy.** A `surface` panel with a `border-strong` ring and `--r-8` corners. A sticky gutter of line numbers in `code` `text-tertiary`, then the text in `code` (13/22 mono): keys in `code-key` medium, `=` and quotes in `code-punct`, values in `code-value`, `${REFERENCES}` in `code-ref` with a dotted underline, comments in italic `code-comment`, `export` in `code-punct`. A status bar on `bg-subtle` reads "24 keys · 2 issues · Ln 12, Col 8" on the left and "Parsed as dotenv" on the right, with an xs "Hide values" button.
 - **Behaviour.** A transparent textarea sits under a highlighted layer with the same metrics, so typing, selection, undo and paste stay native. The line with the caret gets a `bg-subtle` band and its number turns `text`; the whole editor takes the 1.5px `focus` outline flush against its border. Invalid lines (no `=`, a key with spaces or a leading digit, an unclosed quote) get a `danger` mark and number in the gutter and a wavy `danger` underline; duplicate keys get the same in `warning`. Hovering a marked line or its number shows the message ("Line 11: 3D_SECURE starts with a digit. Start keys with a letter or an underscore."). "2 issues" in the status bar is a button that moves the caret to the next one.
@@ -1807,6 +1927,10 @@ The Raw .env mode of an environment: edit every secret as text, with the syntax 
 #### SecretInput
 The field for writing a secret's value: mono, maskable, multiline when the value needs it, with `${KEY}` suggestions and a one click random value.
 
+![SecretInput, preview 1 of 2](images/components/SecretInput-0.png)
+
+![SecretInput, preview 2 of 2](images/components/SecretInput-1.png)
+
 - **Anatomy.** A `surface` field with a `border-strong` ring, `--r-6` corners and `shadow-xs`, 32px tall (`control-md`) or 28px at `sm`. The value sits in `mono`; the placeholder in `text-tertiary`. Two xs icon buttons sit at the end in `text-tertiary`: Multiline (`wrap-text`, pressed when on) and Reveal (`eye`, `eye-off`, pressed when revealed).
 - **Behaviour.** Hover lifts the ring to `border-hover`; focus keeps the `border-hover` ring and draws a 1.5px `focus` outline flush against it, grown out from flush and light to full strength over `duration-focus`. `invalid` turns it `danger`. Masked text is drawn as dots, so shoulder surfers and screen shares see nothing. Multiline swaps to a textarea that grows from 3 to `maxRows` rows without wrapping, and turns on by itself when the value contains a newline (the toggle then stays pressed and disabled). Typing `${` opens a "Reference a key" list at the caret on `surface-raised` with `shadow-md`: ArrowUp and ArrowDown move, Enter or Tab inserts `${KEY}`, Escape closes it without leaving edit mode.
 - **Copy.** Placeholder "Value", or an example of the expected shape ("postgres://user:password@host:5432/db"). Button labels: "Multiline value", "Reveal value", "Hide value".
@@ -1834,6 +1958,8 @@ The field for writing a secret's value: mono, maskable, multiline when the value
 
 #### SecretKeyInput
 The field for a secret's key. It fixes the key as you type, says what it changed, stops duplicates, and hands a pasted .env block to the import flow.
+
+![SecretKeyInput, preview 1 of 1](images/components/SecretKeyInput-0.png)
 
 - **Anatomy.** The same field shell as `SecretInput` (`surface`, `border-strong` ring, `--r-6`, `control-md` or `control-sm`) holding the key in `mono-medium`. Under it (`inline`) or floating over the next row (`floating`), one `caption` line: a `sparkles` hint in `text-tertiary`, or a `circle-alert` error in `danger` on a `danger` ring.
 - **Behaviour.** Normalise on every keystroke and keep the caret where it was: letters become uppercase; spaces, dashes and dots become underscores; anything else is dropped. When the typed text changed, show "Converted to DATABASE_URL" (or "Dropped "$". Keys use A to Z, 0 to 9 and _.") for 2.4s after the last change. Validate as you type: a key that starts with a digit, or one that already exists in the environment, errors at once; an empty key errors only after blur or when `showErrors` is set (after a Save attempt). Pasting a multi-line `KEY=value` block cancels the paste and calls `onPasteEnv`, which opens the import sheet. Pasting one `KEY=value` line fills the key and calls `onPastePair` so the value field fills too.
@@ -1864,6 +1990,14 @@ The field for a secret's key. It fixes the key as you type, says what it changed
 
 #### SecretRow
 The secrets table, the screen secmgr exists to show: `SecretTable` holds `SecretTableHeader` and one `SecretRow` per key, works from the keyboard, groups by prefix, edits inline and shows every staged change before it is saved.
+
+![SecretRow, preview 1 of 4](images/components/SecretRow-0.png)
+
+![SecretRow, preview 2 of 4](images/components/SecretRow-1.png)
+
+![SecretRow, preview 3 of 4](images/components/SecretRow-2.png)
+
+![SecretRow, preview 4 of 4](images/components/SecretRow-3.png)
 
 - **Anatomy.** A grid of five columns shared by the header and every row: a 16px checkbox, the key in `mono-medium` (truncates first to the badges, then itself), the value as a `SecretValue`, "Priya · Sep 21" in `caption` `text-tertiary` with an optional avatar slot, and xs icon buttons (reveal, copy, history, more). Rows are `--row` (44px) or `--row-compact` (36px) tall with `--r-6` corners and a 1px `border` hairline between them. Badges after the key: "Rotation due" (`warning`, `history` icon), "Missing in production" (`danger`, `circle-alert`), a `sticky-note` icon when the secret has a note, then any `badges` slot content such as "Live key".
 - **Header.** Sticky at the top of the scroll area on the table's ground (`z-sticky`), in `caption` medium `text-tertiary`: select all (mixed when some are selected), "Key 21", "Value", "Updated". While rows are selected it turns into "3 secrets selected" with the bulk actions and Clear.
@@ -2010,6 +2144,8 @@ The secrets table, the screen secmgr exists to show: `SecretTable` holds `Secret
 #### SecretValue
 A secret's value as it appears in rows and detail views: hidden behind 12 fixed dots, revealed in mono on request, hidden again on its own.
 
+![SecretValue, preview 1 of 1](images/components/SecretValue-0.png)
+
 - **Anatomy.** Hidden: 12 dots, 96px wide, in `text-tertiary`, the same for every value so rows never jump and length never leaks. Revealed: the value in `mono` on `text`, with a 1.5px countdown line in `border-hover` along the bottom that shrinks to nothing over `revealTimeout`. References such as `${API_BASE_URL}` render in `code-ref` with a dotted underline. Multiline values show the first line and a `+3 lines` chip (`caption`, `text-tertiary` on `fill`). An empty value reads "Empty" in italic `small`, `text-tertiary`, whether hidden or not.
 - **Behaviour.** Reveal fades the value in over `duration-fast`. A revealed sensitive value hides itself after 10s by default (`revealTimeout`); revealing again restarts the countdown. `sensitive={false}` values (LOG_LEVEL, AWS_REGION, S3_BUCKET) show unmasked by default and never auto hide. With `resolve`, hovering or focusing a reference shows a tooltip on `primary` with the key and its value in this environment, or "Not set in this environment" for a broken reference. `copyable` copies with `copyText`, flips its icon to a `success` check for 1.6s and calls `onCopied`.
 - **Layout.** Use `truncate` (default) in rows: one line, ellipsis, the chip for extra lines. Use `wrap` in detail sheets and diffs: every line, breaking anywhere, references focusable.
@@ -2034,6 +2170,12 @@ A secret's value as it appears in rows and detail views: hidden behind 12 fixed 
 
 #### VersionTimeline
 The version history of one secret, newest first: who changed it, what kind of change it was, the masked value with a reveal, a restore for older versions, and a side by side of any two versions.
+
+![VersionTimeline, preview 1 of 3](images/components/VersionTimeline-0.png)
+
+![VersionTimeline, preview 2 of 3](images/components/VersionTimeline-1.png)
+
+![VersionTimeline, preview 3 of 3](images/components/VersionTimeline-2.png)
 
 - **Anatomy.** An optional header with the key in `mono-medium`, the `EnvBadge` at `sm`, the version count and the hint "Select two versions to compare". A 20px rail with a 1px `border-strong` line joining 10px dots: hollow `border-hover` rings for older versions, a filled `primary` dot for the current one, an `accent` dot for versions picked to compare. Each version is a two line block with `--r-6` corners: "v7" in `mono-medium`, the neutral outline `Badge` "Current", the summary in `body` ("Rotated", "Edited value", "Imported from .env", "Deleted", "Created"), and the author and time in `small` at the right; below, the value (12 dots in `mono` `text-tertiary`, or "Deleted" in italic) with its reveal button, "Restore v5" and the Compare checkbox.
 - **Compare.** Ticking Compare on two versions opens a panel on `bg-subtle` with a `border` hairline: "Comparing v6 and v7", then the older version on a `diff-remove-text` marker and the newer on a `diff-add-text` marker. "Reveal values" shows both with the changed words on `diff-remove` and `diff-add`. A third pick replaces the older pick. The `x` clears the comparison. `onCompare(older, newer)` fires when the second version is picked.
@@ -2077,6 +2219,8 @@ The version history of one secret, newest first: who changed it, what kind of ch
 #### EnvBadge
 The identity of an environment wherever it appears: a dot in the environment's color, its lowercase name, and a lock when it is protected.
 
+![EnvBadge, preview 1 of 1](images/components/EnvBadge-0.png)
+
 - **Anatomy.** An 8px dot in `env-<hue>`, the name in `small-medium`, a 14px `lock` icon for protected environments, an optional count. `soft` sits on `env-<hue>-soft` with `env-<hue>-text`; `outline` sits on `surface` with a `border-strong` ring; `dot` drops the chip for dense lists.
 - **Color.** Eight hues: gray, blue, teal, green, amber, orange, rose, violet. Defaults by name: development blue, preview violet, staging amber, production rose, everything else gray. People can recolor any environment; the color follows it everywhere (tabs, matrix headers, the changes bar, the command menu).
 - **Protected.** A protected environment always shows the lock. Never show a lock for anything else.
@@ -2103,6 +2247,8 @@ The identity of an environment wherever it appears: a dot in the environment's c
 
 #### EnvSwitcher
 Moves between a project's environments. Tabs sit at the top of the environment panel with an underline in the active environment's own color; the select mode fits the same choice into a tight header.
+
+![EnvSwitcher, preview 1 of 1](images/components/EnvSwitcher-0.png)
 
 - **Anatomy.** Tabs mode: a 40px row (`control-lg`) on a 1px `border` baseline. Each tab is an `EnvDot`, the lowercase name in `small-medium`, a 12px `lock` for protected environments and the secret count in `caption` `text-tertiary` with tabular numbers, inside a 28px `--r-6` hover pill. The active tab's name turns `text` and a 2px bar in `env-<hue>` slides under it. A "+" `IconButton` (sm) ends the row. Select mode: a ghost 28px trigger with the dot, name, lock and a `chevrons-up-down` in `text-tertiary`.
 - **Behaviour.** Hover fills the pill with `fill-hover`. The underline slides and recolors over `duration-base` with `ease-out` when you switch; it does not animate on first paint. When the row is too narrow, trailing tabs move into a "3 more" button with their dots, which opens a listbox on `surface-raised` with `shadow-md`; the active environment always stays visible as a tab. The select opens the same listbox with a check on the current environment and an "Add environment" item.
@@ -2134,6 +2280,14 @@ Moves between a project's environments. Tabs sit at the top of the environment p
 #### CompareMatrix
 A grid of keys by environments that shows, without revealing a single value, which environments agree with the reference, which differ and which are missing a key.
 
+![CompareMatrix, preview 1 of 4](images/components/CompareMatrix-0.png)
+
+![CompareMatrix, preview 2 of 4](images/components/CompareMatrix-1.png)
+
+![CompareMatrix, preview 3 of 4](images/components/CompareMatrix-2.png)
+
+![CompareMatrix, preview 4 of 4](images/components/CompareMatrix-3.png)
+
 - **Anatomy.** A toolbar with "Only differences" and its count, a legend of the three states, and a `referenceSelect` slot. A table on `surface` with a `border` hairline and `--r-8` corners; the header row sits on `bg-subtle` and stays pinned while the body scrolls, and the key column stays pinned while the environments scroll sideways. Column headers carry an `EnvDot`, the lowercase name, a lock for protected environments, and "Reference" or the secret count in `caption` `text-tertiary`. Environment columns are separated by `border` hairlines.
 - **Cells.** Same as the reference: a 14px `check` and the 4 character fingerprint ("a3f9") in `mono-sm` `text-tertiary`. Differs: `equal-not` in `warning` and a different fingerprint in `text`. The reference column shows its fingerprint in `text-secondary`. Missing: a dashed `border-strong` box with "Missing" in `danger`, and an "Add" ghost button that appears on row hover or focus. An empty value reads "Empty" in italic `text-tertiary`. Matching fingerprints across any two columns mean equal values.
 - **Rows.** A row with any difference gets a 2px marker at the key's left edge (`diff-change-text`, or `diff-remove-text` when a key is missing somewhere) and its key in `mono-medium` `text`; identical rows stay quiet in `mono` `text-secondary`. Keys that share a prefix (`AWS_`, `DATABASE_`, `STRIPE_`) sit under a collapsible group row on `bg-subtle` with "3 keys", "2 with differences", and a per environment summary ("2 differ", "1 missing", or a check). Nested keys dim their prefix to `text-tertiary`. `annotations` put a badge after a key: the danger "Shared live key" on `STRIPE_SECRET_KEY` when staging and production share it; annotated rows stay visible under "Only differences".
@@ -2164,6 +2318,12 @@ A grid of keys by environments that shows, without revealing a single value, whi
 
 #### DiffView
 Two environments side by side, base on the left and compare on the right, with the keys that differ first and the identical keys folded into one row.
+
+![DiffView, preview 1 of 3](images/components/DiffView-0.png)
+
+![DiffView, preview 2 of 3](images/components/DiffView-1.png)
+
+![DiffView, preview 3 of 3](images/components/DiffView-2.png)
 
 - **Anatomy.** A toolbar with the summary counts ("12 differ · 1 missing in production · 11 identical"), each led by a 2px mark in its diff color, then "Only differences" and "Reveal values". A column header on `bg-subtle` with "Key", the base `EnvBadge`, an `arrow-left-right` icon over the gutter, and the compare `EnvBadge`. Rows of at least 40px: a 2px status marker at the left edge (`diff-change-text` changed, `diff-remove-text` missing in compare, `diff-add-text` only in compare), the key in `mono-medium`, the base value, a 24px gutter, the compare value, and a reveal button. The card is `surface` with a `border` hairline and `--r-8` corners.
 - **Values.** Masked values are 12 dots in `mono` `text-tertiary`. Revealed values wrap in `mono`; on changed rows the words that differ sit on `diff-change` in `diff-change-text`. A key missing on one side shows a dashed `border-strong` chip with "Missing" in `danger`. An empty value reads "Empty" in italic `text-tertiary`.
@@ -2217,6 +2377,10 @@ Two environments side by side, base on the left and compare on the right, with t
 #### DropZone
 Where a .env lands: a full page overlay while a file is dragged over the window, and an inline dashed box in empty states and the import sheet. It reads the file and hands over its text; nothing is saved until the person reviews it in `ImportPreview`.
 
+![DropZone, preview 1 of 2](images/components/DropZone-0.png)
+
+![DropZone, preview 2 of 2](images/components/DropZone-1.png)
+
 - **Anatomy, overlay.** A `surface` scrim at 92 percent opacity over the whole viewport, then a frame inset by 16px with a 2px dashed `border-hover` line and `--r-12` corners. Centred: a 48px `surface` tile with `shadow-sm` holding a 24px `file-text`, the title "Drop .env to import into" with the target `EnvBadge` in `title`, and "We parse it first. Nothing is saved until you review." in `body` `text-secondary`. While a file is over the page the frame turns `accent` on `accent-soft` with a 4px `accent-soft` ring.
 - **Anatomy, inline.** A 1px dashed `border-strong` box with `--r-8` corners: a 40px `fill` tile with `file-text`, "Drag a .env file here, or paste its contents" in `body-medium`, the hint "Text files up to 1 MB. Nothing is saved until you review." in `small` `text-tertiary`, and a secondary "Choose file" button with `upload`.
 - **States.** Idle, hover (`border-hover`), focus (the `focus` ring; the line changes to "Press ⌘V to paste a .env"), drag over (`accent` border and 1px ring, `accent-soft` ground, `file-up`, "Drop to import into staging"), reject (`danger` border, `danger-soft` ground, `file-x`, "Only text files up to 1 MB" with the reason: "huge.env is 1.05 MB.", "logo.png is not a text file.", "Drop one file at a time."), loading ("Reading lumen-api.env" with a `Spinner`), disabled (`bg-subtle`, `text-disabled`).
@@ -2244,6 +2408,12 @@ Where a .env lands: a full page overlay while a file is dragged over the window,
 
 #### ImportPreview
 The review step of every import: each line of a pasted or dropped .env, classified against the target environment, with a choice per conflict and the exact count that will be written.
+
+![ImportPreview, preview 1 of 3](images/components/ImportPreview-0.png)
+
+![ImportPreview, preview 2 of 3](images/components/ImportPreview-1.png)
+
+![ImportPreview, preview 3 of 3](images/components/ImportPreview-2.png)
 
 - **Anatomy.** A header with "Import into" in `heading`, the target `EnvBadge`, the line count in `text-tertiary`, and "Reveal values". Below it the summary chips ("12 new", "3 changed", "8 unchanged", "1 invalid", "1 duplicate"): 24px, `--r-4`, a `border-strong` ring, a 6px dot in the status color and the count in `text`. A `danger-soft` alert when lines fail to parse. A select all bar on `bg-subtle`. Rows of at least 44px: checkbox, status `Badge`, key in `mono-medium`, value, and the decision control. A footer on `bg-subtle` holds the import button.
 - **Statuses.** New is a `success` badge. Changed is `warning` and shows the current value, an `arrow-right`, then the new value; revealed, the old words sit on `diff-remove` with a strike and the new words on `diff-add`. Unchanged is a neutral `outline` badge, folded into "Show 8 unchanged keys". Invalid is `danger` on a `danger-soft` row, the key with a wavy `danger` underline, and the reason: "Line 14: keys cannot start with a digit". Duplicate is `warning` on the earlier line with "Also on line 24; the last one wins". Invalid and duplicate lines are never imported and have no checkbox.
@@ -2310,6 +2480,10 @@ The review step of every import: each line of a pasted or dropped .env, classifi
 #### ActivityItem
 One audit log entry written as a sentence, "Priya Raman updated STRIPE_SECRET_KEY in staging", with its action icon and time, and `ActivityFeed`, which groups entries by day and joins their icons with a hairline.
 
+![ActivityItem, preview 1 of 2](images/components/ActivityItem-0.png)
+
+![ActivityItem, preview 2 of 2](images/components/ActivityItem-1.png)
+
 - **Anatomy.** A 24px round `fill` tile with a 14px action icon in `text-secondary` (`plus` added, `pencil` updated, `trash-2` deleted in `danger`, `eye` revealed and `key-round` read in `text`, `lock`, `lock-open`, `rotate-cw`, `upload`, `copy`, `history`). The sentence in `body` `text-secondary`: the actor in `body-medium` `text` (a service token such as `ci-deploy` in `mono-medium`), keys in `mono` `text`, counts in tabular `text`, the environment as an `EnvBadge` at `sm`. The time sits at the right in `small` `text-tertiary`, tabular. An optional `avatar` slot sits before the name.
 - **Expandable change.** Entries with `diff` become a full width button with a `chevron-right` that turns 90 degrees. The panel below is `bg-subtle` with a `border` hairline and `--r-6` corners: a `diff-remove-text` marker with the old version label ("v6") and value, and a `diff-add-text` marker with the new one ("v7"). Values stay masked (12 dots in `mono` `text-tertiary`); "Not set" and "Deleted" stand in for missing sides. Pass `valueRenderer` to use `SecretValue`, which logs a reveal of its own.
 - **Feed.** Day headings in `overline` `text-tertiary` ("Today", "Yesterday", "Sep 28"), aligned with the sentences. Today's entries show relative times ("4 min ago"), earlier days show the clock ("18:32"). A 1px `border-strong` line runs from each icon to the next within a day. Empty: "No activity yet. Changes, reveals and reads show up here." Loading: three skeleton entries.
@@ -2370,6 +2544,8 @@ Props (ActivityItem): `actor`, `actorType`, `action`, `keys`, `count`, `env`, `t
 
 #### Avatar
 Who did it: a member's initials on a hue that never changes for their name, their photo when there is one, or a bot tile for a service token. `AvatarStack` overlaps several with a "+2" chip.
+
+![Avatar, preview 1 of 1](images/components/Avatar-0.png)
 
 - **Anatomy.** A round disc (`--radius-full`, `corner-shape: round`) of 16, 20, 24 or 32px. Initials are 2 letters (first and last word, or the first 2 letters of a single word or of an email's name) in 600 weight at 42 percent of the diameter; at 16px, 1 letter. The ground is `env-<hue>-soft` and the letters `env-<hue>-text`, with the hue picked from blue, teal, green, amber, orange, rose and violet by a stable FNV hash of the lowercased name, so Maya Chen has the same color on every screen. Photos cover the disc with a 1px `border` inset. `kind="service"` is a square tile with `--r-4` corners (`--r-6` at 32px) on `fill` with a `border-strong` ring and a `bot` icon in `text-secondary`.
 - **Stack.** `AvatarStack` overlaps by 14 percent of the diameter, so initials stay whole, separates each disc with a 2px ring in the ground color (`ground`, `surface` by default; 1.5px at 16 and 20px), shows `max` avatars, then a `fill-active` chip with "+2" in tabular numbers whose tooltip lists the rest. The stack is one image to screen readers: "Maya Chen, Jonas Weber, Priya Raman and 2 more".
