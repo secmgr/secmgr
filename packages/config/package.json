@@ -1,0 +1,14 @@
+{
+  "name": "@secmgr/config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.next.json"
+  ],
+  "exports": {
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./tsconfig.next.json": "./tsconfig.next.json"
+  }
+}

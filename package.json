@@ -1,0 +1,33 @@
+{
+  "name": "@secmgr/monorepo",
+  "private": true,
+  "description": "The open source secret manager for teams.",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*"
+  ],
+  "packageManager": "npm@11.17.0",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@secmgr/web",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "db:migrate": "npm run migrate -w @secmgr/db",
+    "db:new": "npm run new -w @secmgr/db --",
+    "db:status": "npm run status -w @secmgr/db",
+    "cli": "npm run dev -w secmgr --silent --",
+    "brand": "npm run generate -w @secmgr/brand-tools"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "turbo": "2.11.5",
+    "typescript": "6.0.3"
+  }
+}
