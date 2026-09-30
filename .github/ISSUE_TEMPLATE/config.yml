@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/secmgr/secmgr/blob/main/SECURITY.md
+    about: Email security@secmgr.xyz. Never open a public issue for a vulnerability.
+  - name: Ask a question
+    url: https://github.com/secmgr/secmgr/discussions
+    about: Questions and ideas go in Discussions.
