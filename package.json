@@ -5,8 +5,7 @@
   "license": "MIT",
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "tools/*"
+    "packages/*"
   ],
   "packageManager": "npm@11.17.0",
   "engines": {
@@ -22,8 +21,7 @@
     "db:migrate": "npm run migrate -w @secmgr/db",
     "db:new": "npm run new -w @secmgr/db --",
     "db:status": "npm run status -w @secmgr/db",
-    "cli": "npm run dev -w secmgr --silent --",
-    "brand": "npm run generate -w @secmgr/brand-tools"
+    "cli": "npm run dev -w secmgr --silent --"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
