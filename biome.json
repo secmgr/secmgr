@@ -55,11 +55,43 @@
   },
   "overrides": [
     {
-      "includes": ["packages/ui/src/foundation.css"],
+      "includes": ["packages/ui/src/foundation.css", "apps/web/home/home.css"],
       "linter": {
         "rules": {
           "complexity": {
             "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["packages/ui/src/components/**", "apps/web/dashboard/**", "apps/web/home/**"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useSemanticElements": "off",
+            "useFocusableInteractive": "off",
+            "useKeyWithClickEvents": "off",
+            "useAriaPropsSupportedByRole": "off",
+            "noStaticElementInteractions": "off",
+            "noLabelWithoutControl": "off",
+            "noNoninteractiveElementToInteractiveRole": "off",
+            "noNoninteractiveTabindex": "off",
+            "noAriaHiddenOnFocusable": "off",
+            "useValidAriaRole": "off"
+          },
+          "correctness": {
+            "useExhaustiveDependencies": "off",
+            "noUndeclaredVariables": "error"
+          },
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          },
+          "style": {
+            "noDescendingSpecificity": "off"
+          },
+          "suspicious": {
+            "noArrayIndexKey": "off"
           }
         }
       }

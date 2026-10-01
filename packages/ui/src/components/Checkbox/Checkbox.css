@@ -1,0 +1,98 @@
+.sg-checkbox {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.sg-checkbox__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.sg-checkbox__input:disabled {
+  cursor: not-allowed;
+}
+.sg-checkbox__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--r-4);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--border-hover);
+  color: var(--on-primary);
+  pointer-events: none;
+  transition:
+    background-color var(--duration-instant) var(--ease-out),
+    box-shadow var(--duration-instant) var(--ease-out);
+}
+.sg-checkbox__mark {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-spring);
+}
+.sg-checkbox:hover .sg-checkbox__box,
+.sg-checkbox.is-hover .sg-checkbox__box {
+  box-shadow: inset 0 0 0 1px var(--text-tertiary);
+}
+.sg-checkbox[data-state="on"] .sg-checkbox__box,
+.sg-checkbox[data-state="mixed"] .sg-checkbox__box {
+  background: var(--primary);
+  box-shadow: none;
+}
+.sg-checkbox[data-state="on"]:hover .sg-checkbox__box,
+.sg-checkbox[data-state="mixed"]:hover .sg-checkbox__box {
+  background: var(--primary-hover);
+}
+.sg-checkbox[data-state="on"] .sg-checkbox__mark,
+.sg-checkbox[data-state="mixed"] .sg-checkbox__mark {
+  opacity: 1;
+  transform: none;
+}
+.sg-checkbox__input:focus-visible + .sg-checkbox__box,
+.sg-checkbox.is-focus .sg-checkbox__box {
+  outline: 1.5px solid var(--focus);
+  outline-offset: 2px;
+}
+.sg-checkbox[data-disabled] .sg-checkbox__box {
+  background: var(--fill);
+  box-shadow: none;
+  color: var(--text-disabled);
+}
+
+.sg-checkbox-field {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  cursor: pointer;
+}
+.sg-checkbox-field .sg-checkbox {
+  margin-top: var(--space-2);
+}
+.sg-checkbox-field__text {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.sg-checkbox-field__label {
+  font: var(--type-body);
+  color: var(--text);
+}
+.sg-checkbox-field__description {
+  font: var(--type-small);
+  color: var(--text-secondary);
+}
+.sg-checkbox-field--disabled {
+  cursor: not-allowed;
+}
+.sg-checkbox-field--disabled .sg-checkbox-field__label {
+  color: var(--text-disabled);
+}

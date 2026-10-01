@@ -1,0 +1,188 @@
+.sg-input {
+  --_h: var(--control-md);
+  --_px: var(--space-10);
+  --_gap: var(--space-8);
+  --_ring: var(--border-strong);
+  --_halo: 0 0 0 0 transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--_gap);
+  width: 100%;
+  min-width: 0;
+  height: var(--_h);
+  padding: 0 var(--_px);
+  border-radius: var(--r-6);
+  background: var(--surface);
+  box-shadow:
+    inset 0 0 0 1px var(--_ring),
+    var(--_halo),
+    var(--shadow-xs);
+  color: var(--text);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  cursor: text;
+  transition:
+    box-shadow var(--duration-instant) var(--ease-out),
+    background-color var(--duration-instant) var(--ease-out);
+}
+.sg-input--sm {
+  --_h: var(--control-sm);
+  --_px: var(--space-8);
+  --_gap: var(--space-6);
+  font: var(--type-small);
+  letter-spacing: var(--tracking-small);
+}
+.sg-input--lg {
+  --_h: var(--control-lg);
+  --_px: var(--space-12);
+  --_gap: var(--space-8);
+}
+
+.sg-input:hover,
+.sg-input.is-hover {
+  --_ring: var(--border-hover);
+}
+.sg-input:focus-within,
+.sg-input.is-focus {
+  --_ring: var(--border-hover);
+  outline: 1.5px solid var(--focus);
+  outline-offset: 0px;
+  --sg-focus-offset: 0px;
+  animation: sg-focus-ring var(--duration-focus) var(--ease-out);
+}
+.sg-input[data-invalid],
+.sg-input[data-invalid]:hover {
+  --_ring: var(--danger);
+}
+.sg-input[data-invalid]:focus-within,
+.sg-input[data-invalid].is-focus {
+  --_ring: var(--danger);
+  outline-color: var(--danger);
+}
+.sg-input[data-readonly] {
+  background: var(--bg-subtle);
+}
+.sg-input[data-readonly]:hover {
+  --_ring: var(--border-strong);
+}
+.sg-input[data-readonly]:focus-within {
+  --_ring: var(--border-hover);
+}
+.sg-input[data-disabled],
+.sg-input[data-disabled]:hover {
+  --_ring: var(--border);
+  --_halo: 0 0 0 0 transparent;
+  background: var(--fill);
+  box-shadow: inset 0 0 0 1px var(--_ring);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.sg-input__field {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-overflow: ellipsis;
+  outline: none;
+  appearance: none;
+}
+.sg-input__field:focus-visible {
+  outline: none;
+}
+.sg-input__field::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+.sg-input__field:disabled {
+  cursor: not-allowed;
+  color: var(--text-disabled);
+  -webkit-text-fill-color: var(--text-disabled);
+}
+.sg-input__field:disabled::placeholder {
+  color: var(--text-disabled);
+}
+.sg-input__field::-webkit-search-cancel-button,
+.sg-input__field::-webkit-search-decoration {
+  appearance: none;
+}
+.sg-input__field::-webkit-inner-spin-button,
+.sg-input__field::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.sg-input__field[type="number"] {
+  appearance: textfield;
+}
+.sg-input__field:-webkit-autofill {
+  -webkit-text-fill-color: var(--text);
+  box-shadow: inset 0 0 0 var(--space-96) var(--surface);
+}
+
+.sg-input__icon {
+  color: var(--text-tertiary);
+  transition: color var(--duration-instant) var(--ease-out);
+}
+.sg-input:focus-within .sg-input__icon,
+.sg-input.is-focus .sg-input__icon {
+  color: var(--text-secondary);
+}
+.sg-input[data-disabled] .sg-input__icon {
+  color: var(--text-disabled);
+}
+
+.sg-input__affix {
+  flex: none;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-tertiary);
+  user-select: none;
+}
+.sg-input__prefix {
+  margin-right: calc(var(--_gap) * -1);
+}
+.sg-input__suffix {
+  font-variant-numeric: tabular-nums;
+}
+.sg-input[data-disabled] .sg-input__affix {
+  color: var(--text-disabled);
+}
+
+.sg-input--mono .sg-input__field,
+.sg-input--mono .sg-input__affix {
+  font: var(--type-mono);
+  letter-spacing: var(--tracking-mono);
+}
+
+.sg-input__button {
+  margin-right: calc(var(--space-4) * -1);
+}
+.sg-input__button + .sg-input__button {
+  margin-left: calc(var(--space-4) - var(--_gap));
+}
+.sg-input__button:has(+ .sg-input__suffix) {
+  margin-right: 0;
+}
+.sg-input__spinner {
+  color: var(--text-tertiary);
+}
+.sg-input__kbd {
+  flex: none;
+}
+.sg-input:focus-within .sg-input__kbd {
+  display: none;
+}
+.sg-input--mono .sg-input__field[type="password"] {
+  font-family: var(--font-sans);
+}

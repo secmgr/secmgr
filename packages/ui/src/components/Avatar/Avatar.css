@@ -1,0 +1,107 @@
+.sg-avatar {
+  --_s: 24px;
+  --_bg: var(--fill-active);
+  --_fg: var(--text-secondary);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--_s);
+  height: var(--_s);
+  border-radius: var(--radius-full);
+  corner-shape: round;
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-sans);
+  font-size: calc(var(--_s) * 0.42);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  overflow: hidden;
+  user-select: none;
+  vertical-align: middle;
+}
+.sg-avatar--16 {
+  --_s: 16px;
+  font-size: calc(var(--_s) * 0.58);
+}
+.sg-avatar--20 {
+  --_s: 20px;
+}
+.sg-avatar--24 {
+  --_s: 24px;
+}
+.sg-avatar--32 {
+  --_s: 32px;
+}
+.sg-avatar__initials {
+  display: block;
+  transform: translateY(0.02em);
+}
+.sg-avatar__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sg-avatar--image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--border);
+  pointer-events: none;
+}
+
+.sg-avatar--service {
+  border-radius: var(--r-4);
+  corner-shape: var(--corner-shape);
+  background: var(--fill);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+  color: var(--text-secondary);
+}
+.sg-avatar--service.sg-avatar--32 {
+  border-radius: var(--r-6);
+}
+
+.sg-avatar-stack {
+  --_ring: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.sg-avatar-stack__item {
+  box-shadow: 0 0 0 2px var(--_ring);
+}
+.sg-avatar-stack__item.sg-avatar--service {
+  box-shadow:
+    inset 0 0 0 1px var(--border-strong),
+    0 0 0 2px var(--_ring);
+}
+.sg-avatar-stack__item + .sg-avatar-stack__item {
+  margin-left: calc(var(--_s) * -0.14);
+}
+.sg-avatar-stack--16 .sg-avatar-stack__item,
+.sg-avatar-stack--20 .sg-avatar-stack__item {
+  box-shadow: 0 0 0 1.5px var(--_ring);
+}
+.sg-avatar-stack--16 .sg-avatar-stack__item.sg-avatar--service,
+.sg-avatar-stack--20 .sg-avatar-stack__item.sg-avatar--service {
+  box-shadow:
+    inset 0 0 0 1px var(--border-strong),
+    0 0 0 1.5px var(--_ring);
+}
+.sg-avatar-stack__more {
+  --_bg: var(--fill-active);
+  --_fg: var(--text-secondary);
+  padding: 0 var(--space-2);
+  width: auto;
+  min-width: var(--_s);
+  font-size: calc(var(--_s) * 0.4);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.sg-avatar-stack--16 .sg-avatar-stack__more {
+  font-size: calc(var(--_s) * 0.5);
+}

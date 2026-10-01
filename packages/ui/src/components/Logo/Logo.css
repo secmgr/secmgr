@@ -1,0 +1,43 @@
+.sg-mark {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+  color: inherit;
+  overflow: visible;
+}
+
+.sg-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.sg-wordmark__mark {
+  flex: none;
+}
+.sg-wordmark__text {
+  display: block;
+  text-box: trim-both ex alphabetic;
+}
+
+.sg-app-icon {
+  --_k: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: calc(var(--r-12) * var(--_k));
+  vertical-align: middle;
+}
+.sg-app-icon > svg {
+  display: block;
+  flex: none;
+}

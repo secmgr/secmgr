@@ -1,0 +1,9 @@
+.sg-spinner {
+  display: inline-block;
+  flex: none;
+  color: currentColor;
+  animation: sg-spin 800ms steps(8, end) infinite;
+}
+.sg-spinner__spoke {
+  stroke: currentColor;
+}

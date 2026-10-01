@@ -1,0 +1,65 @@
+.sg-icon-button {
+  --_s: var(--control-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--_s);
+  height: var(--_s);
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-6);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-instant) var(--ease-out),
+    color var(--duration-instant) var(--ease-out),
+    transform var(--duration-instant) var(--ease-out);
+}
+.sg-icon-button--xs {
+  --_s: var(--control-xs);
+  border-radius: var(--r-4);
+}
+.sg-icon-button--sm {
+  --_s: var(--control-sm);
+}
+.sg-icon-button:hover,
+.sg-icon-button.is-hover {
+  background: var(--fill-hover);
+  color: var(--text);
+}
+.sg-icon-button:active:not(:disabled),
+.sg-icon-button.is-active {
+  background: var(--fill-active);
+  transform: scale(0.96);
+}
+.sg-icon-button[aria-pressed="true"],
+.sg-icon-button[aria-expanded="true"] {
+  background: var(--fill-active);
+  color: var(--text);
+}
+.sg-icon-button--secondary {
+  background: var(--surface);
+  box-shadow:
+    inset 0 0 0 1px var(--border-strong),
+    var(--shadow-xs);
+  color: var(--text);
+}
+.sg-icon-button--secondary:hover,
+.sg-icon-button--secondary.is-hover {
+  background: var(--fill);
+  box-shadow:
+    inset 0 0 0 1px var(--border-hover),
+    var(--shadow-xs);
+}
+.sg-icon-button.is-focus {
+  outline: 1.5px solid var(--focus);
+  outline-offset: 2px;
+}
+.sg-icon-button:disabled {
+  color: var(--text-disabled);
+  background: transparent;
+  box-shadow: none;
+  cursor: not-allowed;
+}

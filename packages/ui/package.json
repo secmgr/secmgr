@@ -3,10 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "description": "The secmgr design system: tokens, foundation styles and fonts.",
+  "description": "The secmgr design system: tokens, foundation styles, fonts and React components.",
   "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
     "./styles.css": "./src/styles.css",
     "./tokens.css": "./src/tokens.css",
     "./foundation.css": "./src/foundation.css"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

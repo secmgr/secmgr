@@ -1,0 +1,91 @@
+.sg-progress {
+  --_fill: var(--text);
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+.sg-progress--success {
+  --_fill: var(--success);
+}
+.sg-progress--warning {
+  --_fill: var(--warning);
+}
+.sg-progress--danger {
+  --_fill: var(--danger);
+}
+
+.sg-progress__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-12);
+  min-width: 0;
+}
+.sg-progress__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-width: 0;
+  color: var(--text);
+  font: var(--type-small-medium);
+  letter-spacing: var(--tracking-small-medium);
+}
+.sg-progress__label-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sg-progress__icon {
+  color: var(--_fill);
+}
+.sg-progress__value {
+  flex: none;
+  color: var(--text-secondary);
+  font: var(--type-small);
+  letter-spacing: var(--tracking-small);
+  font-variant-numeric: tabular-nums;
+}
+.sg-progress__hint {
+  color: var(--text-tertiary);
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+}
+.sg-progress--danger .sg-progress__hint {
+  color: var(--danger);
+}
+
+.sg-progress__track {
+  position: relative;
+  height: 4px;
+  border-radius: var(--radius-full);
+  corner-shape: round;
+  background: var(--fill);
+  overflow: hidden;
+  isolation: isolate;
+}
+.sg-progress__bar {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  corner-shape: round;
+  background: var(--_fill);
+  transform: translateX(-100%);
+  transition:
+    transform var(--duration-slow) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
+}
+.sg-progress--indeterminate .sg-progress__bar {
+  right: auto;
+  width: 40%;
+  transform: translateX(75%);
+  animation: sg-progress-slide calc(var(--duration-reveal) * 2) var(--ease-in-out) infinite;
+}
+@keyframes sg-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}

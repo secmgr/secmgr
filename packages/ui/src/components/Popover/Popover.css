@@ -1,0 +1,57 @@
+.sg-popover {
+  --_dx: 0px;
+  --_dy: 0px;
+  z-index: var(--z-popover);
+  max-width: calc(100vw - var(--space-16));
+  max-height: calc(100vh - var(--space-16));
+  overflow: auto;
+  padding: var(--space-12);
+  border-radius: var(--r-8);
+  background: var(--surface-raised);
+  color: var(--text);
+  box-shadow: var(--shadow-md);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  outline: none;
+  animation: sg-popover-in var(--duration-fast) var(--ease-out);
+}
+.sg-popover:focus-visible {
+  outline: none;
+}
+.sg-popover[data-side="bottom"] {
+  --_dy: var(--space-4);
+}
+.sg-popover[data-side="top"] {
+  --_dy: calc(var(--space-4) * -1);
+}
+.sg-popover[data-side="right"] {
+  --_dx: var(--space-4);
+}
+.sg-popover[data-side="left"] {
+  --_dx: calc(var(--space-4) * -1);
+}
+.sg-popover[data-state="closed"] {
+  pointer-events: none;
+  animation: sg-popover-out var(--duration-instant) var(--ease-in) forwards;
+}
+
+@keyframes sg-popover-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--_dx), var(--_dy)) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sg-popover-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}

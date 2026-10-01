@@ -1,0 +1,21 @@
+{
+  "name": "@secmgr/crypto",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Envelope encryption for secmgr: per-project data keys wrapped by a master key, AES-256-GCM values and keyed fingerprints.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/**/*.test.js\""
+  },
+  "devDependencies": {
+    "@secmgr/config": "*",
+    "@types/node": "26.6.3",
+    "typescript": "6.0.3"
+  }
+}

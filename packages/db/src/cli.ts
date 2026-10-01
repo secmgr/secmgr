@@ -3,8 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseEnv } from "node:util";
 import postgres from "postgres";
-import { migrate, status } from "./migrate.js";
-import { MIGRATIONS_DIR, MigrationError, nextMigrationName, readMigrations } from "./migrations.js";
+import { migrate, status } from "./migrate.ts";
+import { MIGRATIONS_DIR, MigrationError, nextMigrationName, readMigrations } from "./migrations.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const n = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;

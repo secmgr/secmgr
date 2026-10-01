@@ -1,5 +1,5 @@
 import type { Sql, TransactionSql } from "postgres";
-import { type Migration, MigrationError } from "./migrations.js";
+import { type Migration, MigrationError } from "./migrations.ts";
 
 export type MigrationState = {
   name: string;

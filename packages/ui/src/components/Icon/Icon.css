@@ -1,0 +1,10 @@
+.sg-icon {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+.sg-icon--missing {
+  border-radius: var(--r-2);
+  outline: 1px dashed var(--danger);
+  outline-offset: -1px;
+}

@@ -1,0 +1,119 @@
+.sg-app-shell {
+  --_side: var(--sidebar);
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--_side) minmax(0, 1fr);
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+  color: var(--text);
+}
+.sg-app-shell[data-collapsed] {
+  --_side: 56px;
+}
+
+.sg-app-shell__sidebar {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.sg-app-shell__main {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+}
+.sg-app-shell__panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: inset 1px 0 0 var(--border);
+}
+.sg-app-shell[data-inset] .sg-app-shell__panel {
+  margin: var(--space-8) var(--space-8) var(--space-8) 0;
+  border-radius: var(--r-12);
+  box-shadow: var(--shadow-sm);
+}
+.sg-app-shell[data-layout="narrow"] .sg-app-shell__panel {
+  box-shadow: none;
+}
+
+.sg-app-shell__header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--header);
+  padding: 0 var(--space-16) 0 var(--space-12);
+  border-bottom: 1px solid var(--border);
+}
+.sg-app-shell__divider {
+  flex: none;
+  width: 1px;
+  height: var(--space-16);
+  background: var(--border-strong);
+}
+.sg-app-shell__header-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.sg-app-shell__content {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.sg-app-shell[data-layout="narrow"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.sg-app-shell[data-layout="narrow"] .sg-app-shell__sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-sheet);
+  width: min(calc(var(--sidebar) + var(--space-40)), calc(100% - var(--space-48)));
+  border-radius: 0 var(--r-12) var(--r-12) 0;
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform var(--duration-fast) var(--ease-in),
+    visibility 0s linear var(--duration-fast);
+}
+.sg-app-shell[data-drawer="open"] .sg-app-shell__sidebar {
+  transform: none;
+  visibility: visible;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    visibility 0s linear 0s;
+}
+.sg-app-shell__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-sticky);
+  background: var(--overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-in);
+}
+.sg-app-shell[data-drawer="open"] .sg-app-shell__scrim {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity var(--duration-base) var(--ease-out);
+}

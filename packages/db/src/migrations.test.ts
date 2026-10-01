@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { checksum, MigrationError, nextMigrationName, parseMigrations, readMigrations } from "./migrations.js";
+import { checksum, MigrationError, nextMigrationName, parseMigrations, readMigrations } from "./migrations.ts";
 
 const file = (name: string, sql = "select 1;") => ({ file: name, sql });
 

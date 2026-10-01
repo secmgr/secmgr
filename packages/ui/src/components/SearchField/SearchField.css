@@ -1,0 +1,15 @@
+.sg-search-field__count {
+  color: var(--text-tertiary);
+  font: var(--type-small);
+  letter-spacing: var(--tracking-small);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.sg-search-field.sg-input--sm .sg-search-field__count {
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+}
+.sg-search-field .sg-input__field::-webkit-search-results-button,
+.sg-search-field .sg-input__field::-webkit-search-results-decoration {
+  appearance: none;
+}

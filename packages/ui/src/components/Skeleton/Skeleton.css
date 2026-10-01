@@ -1,0 +1,101 @@
+.sg-skeleton {
+  display: block;
+  flex: none;
+  max-width: 100%;
+  border-radius: var(--r-4);
+  background: var(--fill-hover);
+  animation: sg-pulse calc(var(--duration-reveal) * 2) var(--ease-in-out) infinite;
+  animation-delay: calc(var(--_delay, 0) * var(--duration-instant));
+}
+.sg-skeleton--block {
+  width: 100%;
+  height: var(--space-40);
+  border-radius: var(--r-6);
+}
+.sg-skeleton--circle {
+  border-radius: var(--radius-full);
+  corner-shape: round;
+}
+
+.sg-skeleton-text {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+}
+.sg-skeleton-text__line {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+.sg-skeleton-text__line > .sg-skeleton {
+  width: 100%;
+  height: 10px;
+}
+
+.sg-skeleton-rows {
+  container: sg-skeleton-rows / inline-size;
+  display: grid;
+  min-width: 0;
+}
+.sg-skeleton-row {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 240px) minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--space-16);
+  height: var(--row);
+  padding: 0 var(--space-12);
+  border-bottom: 1px solid var(--border);
+}
+.sg-skeleton-rows--compact .sg-skeleton-row {
+  height: var(--row-compact);
+}
+.sg-skeleton-row:last-child {
+  border-bottom: 0;
+}
+.sg-skeleton-row__check {
+  width: 16px;
+  height: 16px;
+}
+.sg-skeleton-row__key {
+  display: flex;
+  min-width: 0;
+}
+.sg-skeleton-row__key > .sg-skeleton {
+  height: 12px;
+}
+.sg-skeleton-row__value {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  overflow: hidden;
+}
+.sg-skeleton-row__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  corner-shape: round;
+}
+.sg-skeleton-row__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+.sg-skeleton-row__avatar {
+  width: 20px;
+  height: 20px;
+}
+.sg-skeleton-row__time {
+  height: 10px;
+}
+@container sg-skeleton-rows (width < 520px) {
+  .sg-skeleton-row {
+    grid-template-columns: 16px minmax(0, 1fr) auto;
+  }
+  .sg-skeleton-row__value {
+    display: none;
+  }
+  .sg-skeleton-row__time {
+    display: none;
+  }
+}

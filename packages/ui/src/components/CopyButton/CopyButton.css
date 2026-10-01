@@ -1,0 +1,52 @@
+.sg-copy-button__icons {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+.sg-copy-button__icons > .sg-icon {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-base) var(--ease-spring);
+}
+.sg-copy-button__check {
+  opacity: 0;
+  transform: scale(0.4) rotate(-12deg);
+}
+.sg-copy-button[data-state="copied"] {
+  color: var(--text);
+}
+.sg-copy-button[data-state="copied"] .sg-copy-button__copy {
+  opacity: 0;
+  transform: scale(0.4);
+  transition-duration: var(--duration-instant);
+}
+.sg-copy-button[data-state="copied"] .sg-copy-button__check {
+  opacity: 1;
+  transform: none;
+}
+.sg-copy-button[data-state="failed"] {
+  color: var(--danger);
+}
+
+.sg-copy-button__labels {
+  display: inline-grid;
+  text-align: left;
+}
+.sg-copy-button__labels > span {
+  grid-area: 1 / 1;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.sg-copy-button__label-done {
+  opacity: 0;
+  visibility: hidden;
+}
+.sg-copy-button--text[data-state="copied"] .sg-copy-button__label-idle {
+  opacity: 0;
+  visibility: hidden;
+}
+.sg-copy-button--text[data-state="copied"] .sg-copy-button__label-done {
+  opacity: 1;
+  visibility: visible;
+}

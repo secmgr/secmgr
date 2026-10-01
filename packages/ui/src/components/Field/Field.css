@@ -1,0 +1,112 @@
+.sg-field {
+  min-width: 0;
+}
+.sg-field__inner {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+.sg-field__head {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.sg-field__label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  min-width: 0;
+  color: var(--text);
+  font: var(--type-small-medium);
+  letter-spacing: var(--tracking-small-medium);
+  cursor: default;
+}
+.sg-field__label-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sg-field__required {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+.sg-field__optional {
+  margin-left: var(--space-2);
+  color: var(--text-tertiary);
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+}
+.sg-field__description {
+  margin: 0;
+  color: var(--text-tertiary);
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+}
+.sg-field__body {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+.sg-field__foot {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-12);
+  min-width: 0;
+}
+.sg-field__hint,
+.sg-field__error {
+  margin: 0;
+  min-width: 0;
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+}
+.sg-field__hint {
+  color: var(--text-tertiary);
+}
+.sg-field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  color: var(--danger);
+  animation: sg-fade-in var(--duration-fast) var(--ease-out);
+}
+.sg-field__error-icon {
+  margin-top: 1px;
+}
+.sg-field__counter {
+  flex: none;
+  margin-left: auto;
+  color: var(--text-tertiary);
+  font: var(--type-caption);
+  letter-spacing: var(--tracking-caption);
+  font-variant-numeric: tabular-nums;
+}
+.sg-field[data-disabled] .sg-field__label {
+  color: var(--text-disabled);
+}
+
+.sg-field--horizontal {
+  container: sg-field / inline-size;
+}
+.sg-field--horizontal .sg-field__inner {
+  grid-template-columns: calc(var(--space-96) * 2 + var(--space-8)) minmax(0, 1fr);
+  column-gap: var(--space-24);
+  row-gap: var(--space-6);
+  align-items: start;
+}
+.sg-field--horizontal .sg-field__head {
+  padding-top: calc((var(--control-md) - 18px) / 2);
+}
+.sg-field--horizontal .sg-field__label-text {
+  white-space: normal;
+}
+@container sg-field (width < 640px) {
+  .sg-field--horizontal .sg-field__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sg-field--horizontal .sg-field__head {
+    padding-top: 0;
+  }
+}

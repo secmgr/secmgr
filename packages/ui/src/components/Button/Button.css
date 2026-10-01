@@ -1,0 +1,126 @@
+.sg-button {
+  --_h: var(--control-md);
+  --_px: var(--space-12);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  height: var(--_h);
+  padding: 0 var(--_px);
+  border: 0;
+  border-radius: var(--r-6);
+  font: var(--type-body-medium);
+  letter-spacing: var(--tracking-body-medium);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--duration-instant) var(--ease-out),
+    box-shadow var(--duration-instant) var(--ease-out),
+    color var(--duration-instant) var(--ease-out),
+    transform var(--duration-instant) var(--ease-out);
+}
+.sg-button__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sg-button__kbd {
+  margin-left: var(--space-2);
+  margin-right: calc(var(--space-4) * -1);
+}
+.sg-button__icon-right {
+  margin-right: calc(var(--space-2) * -1);
+}
+.sg-button:active:not(:disabled),
+.sg-button.is-active {
+  transform: scale(0.98);
+}
+
+.sg-button--sm {
+  --_h: var(--control-sm);
+  --_px: var(--space-10);
+  gap: var(--space-4);
+  font: var(--type-small-medium);
+  letter-spacing: var(--tracking-small-medium);
+}
+.sg-button--lg {
+  --_h: var(--control-lg);
+  --_px: var(--space-16);
+  gap: var(--space-8);
+}
+.sg-button--icon-only {
+  width: var(--_h);
+  padding: 0;
+}
+.sg-button--full {
+  display: flex;
+  width: 100%;
+}
+
+.sg-button--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: var(--shadow-xs);
+}
+.sg-button--primary:hover,
+.sg-button--primary.is-hover {
+  background: var(--primary-hover);
+}
+
+.sg-button--secondary {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow:
+    inset 0 0 0 1px var(--border-strong),
+    var(--shadow-xs);
+}
+.sg-button--secondary:hover,
+.sg-button--secondary.is-hover {
+  background: var(--fill);
+  box-shadow:
+    inset 0 0 0 1px var(--border-hover),
+    var(--shadow-xs);
+}
+
+.sg-button--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.sg-button--ghost:hover,
+.sg-button--ghost.is-hover {
+  background: var(--fill-hover);
+  color: var(--text);
+}
+
+.sg-button--danger {
+  background: var(--danger);
+  color: var(--on-danger);
+  box-shadow: var(--shadow-xs);
+}
+.sg-button--danger:hover,
+.sg-button--danger.is-hover {
+  background: var(--danger-hover);
+}
+
+.sg-button.is-focus {
+  outline: 1.5px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.sg-button:disabled,
+.sg-button[aria-disabled="true"]:not(.sg-button--loading) {
+  background: var(--fill);
+  color: var(--text-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+.sg-button--loading {
+  cursor: progress;
+}
+.sg-button--loading .sg-button__label {
+  opacity: 0.72;
+}

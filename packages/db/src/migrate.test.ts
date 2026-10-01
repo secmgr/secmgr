@@ -4,9 +4,9 @@ import { after, before, describe, test } from "node:test";
 import { is } from "drizzle-orm";
 import { getTableConfig, PgTable } from "drizzle-orm/pg-core";
 import postgres from "postgres";
-import { migrate, status } from "./migrate.js";
-import { parseMigrations, readMigrations } from "./migrations.js";
-import * as schema from "./schema/index.js";
+import { migrate, status } from "./migrate.ts";
+import { parseMigrations, readMigrations } from "./migrations.ts";
+import * as schema from "./schema/index.ts";
 
 const url = process.env.TEST_DATABASE_URL;
 const list = (...files: [string, string][]) => parseMigrations(files.map(([file, sql]) => ({ file, sql })));

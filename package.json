@@ -9,7 +9,7 @@
   ],
   "packageManager": "npm@11.17.0",
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.18"
   },
   "scripts": {
     "dev": "turbo run dev --filter=@secmgr/web",

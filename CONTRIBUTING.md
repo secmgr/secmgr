@@ -4,7 +4,7 @@ Thanks for helping. This guide gets you from a fresh clone to a running app.
 
 ## Requirements
 
-- Node 22.12 or newer, with the npm that ships with it
+- Node 22.18 or newer, with the npm that ships with it
 - A PostgreSQL 16 or newer database. A free hosted one such as Neon works, or run one locally with `docker compose -f docker/compose.dev.yml up -d`
 
 ## Setup
@@ -16,7 +16,9 @@ npm run db:migrate
 npm run dev
 ```
 
-The app runs at `http://localhost:3000`. Put your database URL in `.env.local` first. Run the CLI from source with `npm run cli -- --help`.
+The app runs at `http://localhost:3000`. Put your database URL in `.env.local` first.
+
+To sign in locally, ask for an email link. Without `RESEND_API_KEY` the link is printed in the terminal running `npm run dev`. The GitHub button appears once `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` are set. Run the CLI from source with `npm run cli -- --help`.
 
 ## Layout
 
